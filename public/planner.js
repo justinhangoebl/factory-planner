@@ -229,11 +229,11 @@
       controls.innerHTML = '';
       const countInput = document.createElement('input');
       countInput.type = 'number'; countInput.value = n.count; countInput.min = 0;
-      countInput.style.cssText = 'width:5rem; padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.05); border:1px solid var(--yellow-15); color:inherit;';
+      countInput.className = 'node-count';
       countInput.addEventListener('change', ()=>{ n.count = Number(countInput.value)||0; recompute(); });
 
       const variantSelect = document.createElement('select');
-      variantSelect.style.cssText = 'padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.03); border:1px solid var(--yellow-12); color:inherit;';
+      variantSelect.className = 'node-variant';
       n.variants.forEach((v,idx)=>{
         const opt = document.createElement('option'); opt.value = idx;
         // include building/name and rate in dropdown
@@ -251,10 +251,11 @@
       });
 
       // small building label shown next to controls (not in header)
-      const buildingLabel = document.createElement('div'); buildingLabel.className = 'small'; buildingLabel.style.marginLeft = '0.5rem'; buildingLabel.textContent = n.building || 'Raw';
+      const buildingLabel = document.createElement('div'); buildingLabel.className = 'node-building small'; buildingLabel.textContent = n.building || 'Raw';
 
       controls.appendChild(countInput);
       controls.appendChild(variantSelect);
+      controls.appendChild(buildingLabel);
 
       // wire header remove button
       const headerRemove = card.querySelector('[data-bind="remove"]') || card.querySelector('.node-remove');

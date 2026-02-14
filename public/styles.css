@@ -505,6 +505,47 @@ td.surplus {
   margin-bottom: 0.75rem;
 }
 
+/* Node control form elements */
+.node-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.node-count,
+.node-variant {
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--yellow-12);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.node-count {
+  width: 5rem;
+  text-align: right;
+}
+.node-variant {
+  min-width: 12rem;
+  padding-right: 2.25rem; /* space for dropdown arrow */
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e0e6ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 12px 12px;
+}
+.node-variant:focus,
+.node-count:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 16px var(--yellow-30);
+}
+.node-building {
+  margin-left: 0.5rem;
+  color: var(--yellow-03);
+  font-size: 0.85rem;
+}
+
 .missing-list {
   margin-top: 1rem;
 }
