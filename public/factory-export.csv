@@ -1,0 +1,7 @@
+Multiplier,Building,Item,AI Expansion Server,AI Limiter,Copper Sheet,Dark Matter Residue,Electromagnetic Control Rod,Excited Photonic Matter,Magnetic Field Generator,Neural-Quantum Processor,Quickwire,Stator,Superposition Oscillator,Versatile Framework
+1,Quantum Encoder,AI Expansion Server,4,0,0,100,0,-100,-4,-4,0,0,-4,0
+1,Converter,Excited Photonic Matter,0,0,0,0,0,200,0,0,0,0,0,0
+1,Assembler,Magnetic Field Generator,0,0,0,0,-1,0,1,0,0,0,0,-2.5
+1,Assembler,Electromagnetic Control Rod,0,-4,0,0,4,0,0,0,0,-6,0,0
+1,Assembler,AI Limiter,0,5,-25,0,0,0,0,0,-100,0,0,0
+,,SUM,4,1,-25,100,3,100,-3,-4,-100,-6,-4,-2.5

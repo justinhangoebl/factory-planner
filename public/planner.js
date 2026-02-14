@@ -149,6 +149,20 @@
       if (varEl) varEl.textContent = `${variants.length} recipe${variants.length>1?'s':''}`;
       if (currentMissing[k]) node.classList.add('missing');
       node.addEventListener('dragstart', e=>{ e.dataTransfer.setData('text/plain', k); });
+      // double-click (or double-tap) to add the recipe quickly
+      node.addEventListener('dblclick', ()=>{ addNodeForItem(k); });
+      // touch double-tap support
+      (function(el, item){
+        let _lastTouch = 0;
+        el.addEventListener('touchend', (ev)=>{
+          const now = Date.now();
+          if (now - _lastTouch <= 350) {
+            ev.preventDefault();
+            addNodeForItem(item);
+            _lastTouch = 0;
+          } else _lastTouch = now;
+        });
+      })(node, k);
       listEl.appendChild(node);
     });
   }
@@ -288,9 +302,8 @@
 
   // extractor UI removed — extractors are available via recipes sidebar
 
-  // Export CSV: builds per-building per-item rows and a SUM row
-  function exportCsv() {
-    // collect items
+  // Export CSV / HTML table: include per-unit and total-per-building columns for each item
+  function buildTableAndCsv() {
     const itemsSet = new Set();
     nodes.forEach(n => {
       if (n.item) itemsSet.add(n.item);
@@ -299,18 +312,16 @@
     });
     const items = Array.from(itemsSet).sort();
 
-    // headers: Multiplier, Building, Item, [item, TOTAL PER BUILDING]*
-    const headers = ['Multiplier','Building','Item'];
-    items.forEach(it => { headers.push(it); headers.push('TOTAL PER BUILDING'); });
+    // headers: MULTIPLIER, NAME, for each item -> [item per, item total], ENERGY
+    const headers = ['MULTIPLIER','NAME'];
+    items.forEach(it=>{ headers.push(`${it} per`); headers.push(`${it} total`); });
+    headers.push('ENERGY');
 
     const rows = [];
-    // per-node rows
     nodes.forEach(n=>{
-      const row = [];
       const multiplier = n.count || 0;
-      row.push(multiplier);
-      row.push(n.building || '');
-      row.push(n.item || '');
+      const nameLabel = n.building ? `${n.building} — ${n.item}` : n.item || '';
+      const row = [multiplier, nameLabel];
       items.forEach(it=>{
         let perUnit = 0;
         if (it === n.item) perUnit = n.perOutput || 0;
@@ -319,49 +330,58 @@
           const inp = (n.inputs||[]).find(x=>x.item===it);
           if (inp) perUnit = - (inp.rate || 0);
         }
-        const totalPerBuilding = perUnit * multiplier;
+        const total = perUnit * multiplier;
         row.push(Number(perUnit.toFixed(2)));
-        row.push(Number(totalPerBuilding.toFixed(2)));
+        row.push(Number(total.toFixed(2)));
       });
+      const energy = (n.power||0) * multiplier;
+      row.push(Number(energy.toFixed(2)));
       rows.push(row);
     });
 
-    // SUM row: blanks for Multiplier/Building/Item, then per-item blank and total sum
-    const sumRow = ['','','SUM'];
+    // SUM row: ['', 'SUM', per-unit blanks, totals per item sum..., total energy]
+    const sumRow = ['','SUM'];
     items.forEach(it=>{
-      // per-unit SUM left empty
-      const colIndex = 3; // starting index for items in row
-      // compute sum of total-per-building for this item across nodes
-      let sum = 0;
-      rows.forEach(r=>{
-        // each item contributes at positions: base + (itemIndex*2) and base+(itemIndex*2)+1
-      });
-      // easier: recompute directly
+      // per-unit column left blank for SUM
+      sumRow.push('');
+      // total-per-building sum
       let total = 0;
       nodes.forEach(n=>{
         const multiplier = n.count || 0;
         let perUnit = 0;
-        if (n.item === it) perUnit = n.perOutput || 0;
+        if (it === n.item) perUnit = n.perOutput || 0;
+        else if (n.byproduct && n.byproduct.item === it) perUnit = n.byproduct.rate || 0;
         else {
           const inp = (n.inputs||[]).find(x=>x.item===it);
           if (inp) perUnit = - (inp.rate || 0);
         }
         total += perUnit * multiplier;
       });
-      sumRow.push('');
       sumRow.push(Number(total.toFixed(2)));
     });
+    let totalEnergy = 0; nodes.forEach(n=>{ totalEnergy += (n.power||0) * (n.count||0); });
+    sumRow.push(Number(totalEnergy.toFixed(2)));
     rows.push(sumRow);
 
-    // build CSV string
+    // build CSV
     const escapeCell = v => typeof v === 'string' && (v.includes(',')||v.includes('\n')) ? '"'+v.replace(/"/g,'""')+'"' : String(v);
-    let csv = headers.map(escapeCell).join(',') + '\n';
-    rows.forEach(r=>{
-      csv += r.map(escapeCell).join(',') + '\n';
-    });
+    const csvHeader = headers.map(h => escapeCell(h === '' || h == null ? '-' : h)).join(',');
+    const csvRows = rows.map(r=> r.map(c => (c=== '' || c==null) ? '-' : escapeCell(c)).join(',')).join('\n');
+    const csv = csvHeader + '\n' + csvRows + '\n';
 
-    // download
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    // build HTML table for clipboard copy (easier to paste to Sheets)
+    let html = '<table><thead><tr>' + headers.map(h=>`<th>${h=== ''||h==null?'-':String(h)}</th>`).join('') + '</tr></thead><tbody>';
+    rows.forEach(r=>{
+      html += '<tr>' + r.map(c=>`<td>${(c=== ''||c==null)?'-':String(c)}</td>`).join('') + '</tr>';
+    });
+    html += '</tbody></table>';
+
+    return { csv, html };
+  }
+
+  function exportCsv(){
+    const out = buildTableAndCsv();
+    const blob = new Blob([out.csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -377,6 +397,104 @@
   if (expBtn) {
     expBtn.innerHTML = SVG.Download(16,'#0a0e17') + '<span style="margin-left:8px; font-weight:700;">Export CSV</span>';
     expBtn.addEventListener('click', exportCsv);
+  }
+  // wire Copy button
+  const copyBtn = document.getElementById('copy-csv');
+  if (copyBtn) {
+    copyBtn.innerHTML = '<span style="font-weight:700;">Copy CSV</span>';
+    // shared CSV builder used by export and copy
+    function buildCsvString() {
+      const itemsSet = new Set();
+      nodes.forEach(n => {
+        if (n.item) itemsSet.add(n.item);
+        (n.inputs||[]).forEach(i=>itemsSet.add(i.item));
+        if (n.byproduct && n.byproduct.item) itemsSet.add(n.byproduct.item);
+      });
+      const items = Array.from(itemsSet).sort();
+      const headers = ['MULTIPLIER','NAME', ...items, 'ENERGY'];
+      const rows = [];
+      nodes.forEach(n=>{
+        const row = [];
+        const multiplier = n.count || 0;
+        row.push(multiplier);
+        row.push(n.building || n.item || '');
+        items.forEach(it=>{
+          let perUnit = 0;
+          if (it === n.item) perUnit = n.perOutput || 0;
+          else if (n.byproduct && n.byproduct.item === it) perUnit = n.byproduct.rate || 0;
+          else {
+            const inp = (n.inputs||[]).find(x=>x.item===it);
+            if (inp) perUnit = - (inp.rate || 0);
+          }
+          const total = perUnit * multiplier;
+          row.push(Number(total.toFixed(2)));
+        });
+        const energy = (n.power||0) * multiplier;
+        row.push(Number(energy.toFixed(2)));
+        rows.push(row);
+      });
+      const sumRow = ['','SUM'];
+      items.forEach(it=>{
+        let total = 0;
+        nodes.forEach(n=>{
+          const multiplier = n.count || 0;
+          let perUnit = 0;
+          if (it === n.item) perUnit = n.perOutput || 0;
+          else if (n.byproduct && n.byproduct.item === it) perUnit = n.byproduct.rate || 0;
+          else {
+            const inp = (n.inputs||[]).find(x=>x.item===it);
+            if (inp) perUnit = - (inp.rate || 0);
+          }
+          total += perUnit * multiplier;
+        });
+        sumRow.push(Number(total.toFixed(2)));
+      });
+      let totalEnergy = 0; nodes.forEach(n=>{ totalEnergy += (n.power||0) * (n.count||0); });
+      sumRow.push(Number(totalEnergy.toFixed(2)));
+      rows.push(sumRow);
+      const escapeCell = v => typeof v === 'string' && (v.includes(',')||v.includes('\n')) ? '"'+v.replace(/"/g,'""')+'"' : String(v);
+      let csv = headers.map(h => escapeCell(h === '' || h == null ? '-' : h)).join(',') + '\n';
+      rows.forEach(r=>{ csv += r.map(c => escapeCell(c === '' || c == null ? '-' : c)).join(',') + '\n'; });
+      return csv;
+    }
+
+    async function doCopyCsvFeedback() {
+      try {
+        const out = buildTableAndCsv();
+        // prefer rich clipboard (text/html) when available
+        if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem) {
+          const blobHtml = new Blob([out.html], { type: 'text/html' });
+          const blobText = new Blob([out.csv], { type: 'text/plain' });
+          const item = new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText });
+          await navigator.clipboard.write([item]);
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          // fallback to plain text CSV
+          await navigator.clipboard.writeText(out.csv);
+        } else {
+          throw new Error('Clipboard API not available');
+        }
+        const old = copyBtn.innerHTML;
+        copyBtn.innerHTML = 'Copied';
+        setTimeout(()=> copyBtn.innerHTML = old, 1500);
+      } catch (e) {
+        alert('Copy failed: '+(e && e.message ? e.message : String(e)));
+      }
+    }
+
+    // click handler (existing)
+    copyBtn.addEventListener('click', doCopyCsvFeedback);
+    // dblclick handler
+    copyBtn.addEventListener('dblclick', doCopyCsvFeedback);
+    // touch double-tap handler for mobile: detect two taps within 350ms
+    let _lastTouch = 0;
+    copyBtn.addEventListener('touchend', (ev)=>{
+      const now = Date.now();
+      if (now - _lastTouch <= 350) {
+        ev.preventDefault();
+        doCopyCsvFeedback();
+        _lastTouch = 0;
+      } else _lastTouch = now;
+    });
   }
   function recompute(){
     // totals
