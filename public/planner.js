@@ -99,33 +99,7 @@
     });
   }
 
-  // Expand extractor recipe variants only with MK tiers (Mk1 = base, Mk2 = 2x rate, Mk3 = 4x rate)
-  const extractorKeys = new Set(Object.keys(extractors));
-  Object.keys(recipesMap).forEach(key => {
-    const original = recipesMap[key];
-    // determine if this recipe represents an extractor/miner: either it's in extractor list,
-    // or it consumes 'Node' (we injected extractors earlier), or building name hints at miner/extractor
-    const shouldExpand = extractorKeys.has(key) || original.some(v => (v.inputs||[]).some(i=>i.item === 'Node')) || original.some(v=>/extractor|miner|node/i.test(v.building||''));
-    if (!shouldExpand) return; // skip expansion for non-extractor recipes
-    const expanded = [];
-    original.forEach(v => {
-      const base = Object.assign({}, v, { building: v.building || '' });
-      expanded.push(base);
-      const mk2 = JSON.parse(JSON.stringify(v));
-      mk2.name = (v.name || key) + ' Mk.2';
-      mk2.building = (v.building ? v.building + ' Mk.2' : 'Mk.2');
-      if (mk2.output && typeof mk2.output.rate === 'number') mk2.output.rate = mk2.output.rate * 2;
-      mk2.power = (mk2.power||0) * 2;
-      expanded.push(mk2);
-      const mk3 = JSON.parse(JSON.stringify(v));
-      mk3.name = (v.name || key) + ' Mk.3';
-      mk3.building = (v.building ? v.building + ' Mk.3' : 'Mk.3');
-      if (mk3.output && typeof mk3.output.rate === 'number') mk3.output.rate = mk3.output.rate * 4;
-      mk3.power = (mk3.power||0) * 4;
-      expanded.push(mk3);
-    });
-    recipesMap[key] = expanded;
-  });
+  // NOTE: extractor MK expansion removed — use recipes as provided in DB
 
   // UI elements
   const listEl = document.getElementById('recipes-list');
@@ -221,7 +195,6 @@
       const card = tpl.content.firstElementChild.cloneNode(true);
       card.dataset.id = n.id;
       const nameEl = card.querySelector('[data-bind="name"]') || card.querySelector('.nc-name');
-      const buildingEl = card.querySelector('[data-bind="building"]') || card.querySelector('.nc-building');
       if (nameEl) nameEl.textContent = n.item;
 
       // controls: count, variant select. remove button lives in header (top-right) so it's always visible
@@ -232,58 +205,82 @@
       countInput.className = 'node-count';
       countInput.addEventListener('change', ()=>{ n.count = Number(countInput.value)||0; recompute(); });
 
-      const variantSelect = document.createElement('select');
-      variantSelect.className = 'node-variant';
-      n.variants.forEach((v,idx)=>{
-        const opt = document.createElement('option'); opt.value = idx;
-        // include building/name and rate in dropdown
+      // Custom dropdown (replaces native select) so the open overlay can be themed
+      const variantWrapper = document.createElement('div');
+      variantWrapper.className = 'node-variant-wrapper';
+      const variantButton = document.createElement('button');
+      variantButton.type = 'button';
+      variantButton.className = 'node-variant-button';
+      // build label for current variant
+      const curVar = n.variants[n.variantIndex] || {};
+      const curLabel = ((curVar.building || curVar.name || '').trim()) || ((curVar.output && curVar.output.rate) ? `${curVar.output.rate.toFixed(2)}/min` : '');
+      variantButton.textContent = curLabel;
+      const variantList = document.createElement('div');
+      variantList.className = 'node-variant-list';
+      n.variants.forEach((v, idx) => {
+        const opt = document.createElement('div');
+        opt.className = 'node-variant-option';
+        opt.dataset.index = idx;
         const label = (v.building || v.name || '').trim();
         const rate = (v.output && v.output.rate) ? v.output.rate.toFixed(2) : '0';
-        opt.text = label ? `${label} — ${rate}/min` : `${rate}/min`;
-        variantSelect.appendChild(opt);
+        opt.textContent = label ? `${label} — ${rate}/min` : `${rate}/min`;
+        opt.addEventListener('click', (e) => {
+          e.stopPropagation();
+          n.variantIndex = Number(opt.dataset.index);
+          const sel = n.variants[n.variantIndex];
+          if (sel) { n.building = sel.building; n.perOutput = sel.output.rate; n.inputs = sel.inputs; n.power = sel.power; n.byproduct = sel.byproduct || null; }
+          closeAllVariantLists();
+          recompute(); renderNodes();
+        });
+        variantList.appendChild(opt);
       });
-      variantSelect.value = n.variantIndex;
-      variantSelect.addEventListener('change', ()=>{
-        n.variantIndex = Number(variantSelect.value);
-        const v = n.variants[n.variantIndex];
-        if (v) { n.building = v.building; n.perOutput = v.output.rate; n.inputs = v.inputs; n.power = v.power; n.byproduct = v.byproduct || null; }
-        recompute(); renderNodes();
-      });
-
-      // small building label shown next to controls (not in header)
-      const buildingLabel = document.createElement('div'); buildingLabel.className = 'node-building small'; buildingLabel.textContent = n.building || 'Raw';
+      variantWrapper.appendChild(variantButton);
+      variantWrapper.appendChild(variantList);
+      // toggle list
+      variantButton.addEventListener('click', (e) => { e.stopPropagation(); closeAllVariantLists(); variantWrapper.classList.toggle('open'); });
+      // helper to close all open lists
+      function closeAllVariantLists() {
+        document.querySelectorAll('.node-variant-wrapper.open').forEach(w => w.classList.remove('open'));
+      }
+      // close on outside click (global)
+      if (!document._planner_variant_global) {
+        document._planner_variant_global = true;
+        document.addEventListener('click', ()=>{ document.querySelectorAll('.node-variant-wrapper.open').forEach(w=>w.classList.remove('open')); });
+      }
 
       controls.appendChild(countInput);
-      controls.appendChild(variantSelect);
-      controls.appendChild(buildingLabel);
-
+      controls.appendChild(variantWrapper);
       // wire header remove button
       const headerRemove = card.querySelector('[data-bind="remove"]') || card.querySelector('.node-remove');
       if (headerRemove) {
         headerRemove.addEventListener('click', ()=>{ const i = nodes.findIndex(x=>x.id===n.id); if (i>=0) nodes.splice(i,1); renderNodes(); recompute(); });
       }
 
-      // detailed inputs/outputs
-      // populate collapsible IO table
+      // detailed inputs (inside collapsible) and always-visible outputs
       const ioBody = card.querySelector('[data-bind="io-body"]');
       if (ioBody) {
         ioBody.innerHTML = '';
-        // inputs
+        // inputs only inside the collapsible
         (n.inputs||[]).forEach(inp=>{
           const tr = document.createElement('tr');
-          tr.innerHTML = `<td style="padding:0.25rem 0.5rem; color:#8b95a5;">Input</td><td style="padding:0.25rem 0.5rem;">${inp.item}</td><td style="padding:0.25rem 0.5rem; text-align:right;">${inp.rate.toFixed(2)}</td>`;
+          tr.innerHTML = `<td style="padding:0.25rem 0.5rem;">${inp.item}</td><td style="padding:0.25rem 0.5rem; text-align:right;">${inp.rate.toFixed(2)}</td>`;
           ioBody.appendChild(tr);
         });
-        // output
-        const otr = document.createElement('tr');
-        otr.innerHTML = `<td style="padding:0.25rem 0.5rem; color:#8b95a5;">Output</td><td style="padding:0.25rem 0.5rem;">${n.item}</td><td style="padding:0.25rem 0.5rem; text-align:right;">${(n.perOutput||0).toFixed(2)}</td>`;
-        ioBody.appendChild(otr);
-        // byproduct / residual output (if any)
-        if (n.byproduct && n.byproduct.item) {
-          const btr = document.createElement('tr');
-          btr.innerHTML = `<td style="padding:0.25rem 0.5rem; color:#8b95a5;">Residual</td><td style="padding:0.25rem 0.5rem;">${n.byproduct.item}</td><td style="padding:0.25rem 0.5rem; text-align:right;">${(n.byproduct.rate||0).toFixed(2)}</td>`;
-          ioBody.appendChild(btr);
-        }
+      }
+      // populate always-visible output/residual elements
+      const outItemEl = card.querySelector('[data-bind="io-output-item"]');
+      const outRateEl = card.querySelector('[data-bind="io-output-rate"]');
+      if (outItemEl) outItemEl.textContent = n.item || '';
+      if (outRateEl) outRateEl.textContent = (n.perOutput||0).toFixed(2) + '/min';
+      const resRow = card.querySelector('[data-bind="io-residual-row"]');
+      const resItemEl = card.querySelector('[data-bind="io-residual-item"]');
+      const resRateEl = card.querySelector('[data-bind="io-residual-rate"]');
+      if (n.byproduct && n.byproduct.item) {
+        if (resRow) resRow.style.display = '';
+        if (resItemEl) resItemEl.textContent = n.byproduct.item;
+        if (resRateEl) resRateEl.textContent = (n.byproduct.rate||0).toFixed(2) + '/min';
+      } else {
+        if (resRow) resRow.style.display = 'none';
       }
       nodesEl.appendChild(card);
     });

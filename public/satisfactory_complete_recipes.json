@@ -3,9 +3,10 @@
     "source": "Official Satisfactory Wiki",
     "url": "https://satisfactory.wiki.gg/wiki/Recipes",
     "extracted_date": "2025-02-14",
-    "total_recipes": 315,
+    "total_recipes": 348,
     "game_version": "Update 8 / 1.0",
-    "description": "Complete recipe database from Satisfactory wiki including all standard and alternate recipes"
+    "description": "Complete recipe database from Satisfactory wiki including all standard and alternate recipes",
+    "mining_recipes": 33
   },
   "recipes": [
     {
@@ -58,7 +59,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Adaptive Control Unit",
@@ -86,7 +87,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Alclad Aluminum Sheet",
@@ -106,7 +107,7 @@
         "amount": 3.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Alien DNA Capsule",
@@ -122,7 +123,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Alien Power Matrix",
@@ -174,7 +175,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Silica",
         "amount": 5.0
@@ -194,7 +195,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Aluminum Ingot",
@@ -214,7 +215,7 @@
         "amount": 4.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Aluminum Scrap",
@@ -234,7 +235,7 @@
         "amount": 6.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Water",
         "amount": 2.0
@@ -258,7 +259,7 @@
         "amount": 1.0
       },
       "time": 80.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Automated Wiring",
@@ -278,7 +279,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Ballistic Warp Drive",
@@ -306,7 +307,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Battery",
@@ -330,7 +331,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Water",
         "amount": 1.5
@@ -354,7 +355,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Bauxite (Copper)",
@@ -374,7 +375,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Biochemical Sculptor",
@@ -398,7 +399,7 @@
         "amount": 4.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Biomass (Alien Protein)",
@@ -414,7 +415,7 @@
         "amount": 100.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Biomass (Leaves)",
@@ -430,7 +431,7 @@
         "amount": 5.0
       },
       "time": 5.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Biomass (Mycelia)",
@@ -446,7 +447,7 @@
         "amount": 10.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Biomass (Wood)",
@@ -462,7 +463,7 @@
         "amount": 20.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Black Powder",
@@ -482,7 +483,7 @@
         "amount": 2.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Blade Runners",
@@ -522,7 +523,7 @@
         "amount": 2.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Cable",
@@ -538,7 +539,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Candy Cane",
@@ -554,7 +555,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Candy Cane Basher",
@@ -594,7 +595,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Caterium Ore (Copper)",
@@ -614,7 +615,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Caterium Ore (Quartz)",
@@ -634,7 +635,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Chainsaw",
@@ -682,7 +683,7 @@
         "amount": 1.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Cluster Nobelisk",
@@ -702,7 +703,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Coal (Iron)",
@@ -722,7 +723,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Coal (Limestone)",
@@ -742,7 +743,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Computer",
@@ -766,7 +767,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Concrete",
@@ -782,7 +783,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Cooling System",
@@ -810,7 +811,7 @@
         "amount": 1.0
       },
       "time": 10.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Copper FICSMAS Ornament",
@@ -830,7 +831,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Copper Ingot",
@@ -846,7 +847,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Copper Ore (Quartz)",
@@ -866,7 +867,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Copper Ore (Sulfur)",
@@ -886,7 +887,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Copper Powder",
@@ -902,7 +903,7 @@
         "amount": 5.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Copper Sheet",
@@ -918,7 +919,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Crystal Oscillator",
@@ -942,7 +943,7 @@
         "amount": 2.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Dark Matter Crystal",
@@ -978,7 +979,7 @@
         "amount": 10.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Diamonds",
@@ -994,7 +995,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Electromagnetic Control Rod",
@@ -1014,7 +1015,7 @@
         "amount": 2.0
       },
       "time": 30.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Empty Canister",
@@ -1030,7 +1031,7 @@
         "amount": 4.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Empty Fluid Tank",
@@ -1046,7 +1047,7 @@
         "amount": 1.0
       },
       "time": 1.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Encased Industrial Beam",
@@ -1066,7 +1067,7 @@
         "amount": 1.0
       },
       "time": 10.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Encased Plutonium Cell",
@@ -1086,7 +1087,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Encased Uranium Cell",
@@ -1110,7 +1111,7 @@
         "amount": 5.0
       },
       "time": 12.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Sulfuric Acid",
         "amount": 2.0
@@ -1125,7 +1126,7 @@
         "amount": 10.0
       },
       "time": 3.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Explosive Rebar",
@@ -1149,7 +1150,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "FICSMAS Actual Snow",
@@ -1165,7 +1166,7 @@
         "amount": 2.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "FICSMAS Bow",
@@ -1181,7 +1182,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "FICSMAS Ornament Bundle",
@@ -1201,7 +1202,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "FICSMAS Tree Branch",
@@ -1217,7 +1218,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "FICSMAS Wonder Star",
@@ -1237,7 +1238,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "FICSMAS Wreath",
@@ -1257,7 +1258,7 @@
         "amount": 2.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Fabric",
@@ -1277,7 +1278,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Factory Cart\u2122",
@@ -1321,7 +1322,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Ficsite Ingot (Aluminum)",
@@ -1341,7 +1342,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Ficsite Ingot (Caterium)",
@@ -1361,7 +1362,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Ficsite Ingot (Iron)",
@@ -1381,7 +1382,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Ficsite Trigon",
@@ -1397,7 +1398,7 @@
         "amount": 3.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Ficsonium",
@@ -1469,7 +1470,7 @@
         "amount": 4.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Polymer Resin",
         "amount": 3.0
@@ -1497,7 +1498,7 @@
         "amount": 1.0
       },
       "time": 40.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Gas Filter",
@@ -1521,7 +1522,7 @@
         "amount": 1.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Gas Mask",
@@ -1565,7 +1566,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Golden Factory Cart\u2122",
@@ -1605,7 +1606,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Hazmat Suit",
@@ -1653,7 +1654,7 @@
         "amount": 1.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Heavy Modular Frame",
@@ -1681,7 +1682,7 @@
         "amount": 1.0
       },
       "time": 30.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "High-Speed Connector",
@@ -1705,7 +1706,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Hog Protein",
@@ -1721,7 +1722,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Homing Rifle Ammo",
@@ -1741,7 +1742,7 @@
         "amount": 10.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Hoverpack",
@@ -1793,7 +1794,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Ionized Fuel",
@@ -1813,7 +1814,7 @@
         "amount": 16.0
       },
       "time": 24.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Compacted Coal",
         "amount": 2.0
@@ -1837,7 +1838,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Iron Ingot",
@@ -1853,7 +1854,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Iron Ore (Limestone)",
@@ -1873,7 +1874,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Iron Plate",
@@ -1889,7 +1890,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Iron Rebar",
@@ -1905,7 +1906,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Iron Rod",
@@ -1921,7 +1922,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Jetpack",
@@ -1969,7 +1970,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Liquid Biofuel",
@@ -1989,7 +1990,7 @@
         "amount": 4.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Magnetic Field Generator",
@@ -2009,7 +2010,7 @@
         "amount": 2.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Modular Engine",
@@ -2033,7 +2034,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Modular Frame",
@@ -2053,7 +2054,7 @@
         "amount": 2.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Motor",
@@ -2073,7 +2074,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Neural-Quantum Processor",
@@ -2129,7 +2130,7 @@
         "amount": 3.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Nitrogen Gas (Bauxite)",
@@ -2149,7 +2150,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Nitrogen Gas (Caterium)",
@@ -2169,7 +2170,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Nobelisk",
@@ -2189,7 +2190,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Nobelisk Detonator",
@@ -2241,7 +2242,7 @@
         "amount": 20.0
       },
       "time": 24.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Water",
         "amount": 6.0
@@ -2293,7 +2294,7 @@
         "amount": 1.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Nutritional Inhaler",
@@ -2361,7 +2362,7 @@
         "amount": 2.0
       },
       "time": 1.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Fuel",
@@ -2381,7 +2382,7 @@
         "amount": 2.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Heavy Oil Residue",
@@ -2401,7 +2402,7 @@
         "amount": 2.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Ionized Fuel",
@@ -2421,7 +2422,7 @@
         "amount": 2.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Liquid Biofuel",
@@ -2441,7 +2442,7 @@
         "amount": 2.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Nitric Acid",
@@ -2461,7 +2462,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Nitrogen Gas",
@@ -2481,7 +2482,7 @@
         "amount": 1.0
       },
       "time": 1.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Oil",
@@ -2501,7 +2502,7 @@
         "amount": 2.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Rocket Fuel",
@@ -2521,7 +2522,7 @@
         "amount": 1.0
       },
       "time": 1.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Sulfuric Acid",
@@ -2541,7 +2542,7 @@
         "amount": 2.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Turbofuel",
@@ -2561,7 +2562,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Packaged Water",
@@ -2581,7 +2582,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 10
     },
     {
       "name": "Parachute",
@@ -2617,7 +2618,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Plastic",
@@ -2633,7 +2634,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Heavy Oil Residue",
         "amount": 1.0
@@ -2665,7 +2666,7 @@
         "amount": 1.0
       },
       "time": 240.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Plutonium Fuel Rod (burning)",
@@ -2701,7 +2702,7 @@
         "amount": 30.0
       },
       "time": 60.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Portable Miner",
@@ -2737,7 +2738,7 @@
         "amount": 1.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Power Shard (2)",
@@ -2753,7 +2754,7 @@
         "amount": 2.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Power Shard (5)",
@@ -2769,7 +2770,7 @@
         "amount": 5.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Pressure Conversion Cube",
@@ -2789,7 +2790,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Protein Inhaler",
@@ -2829,7 +2830,7 @@
         "amount": 5.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Quartz Crystal",
@@ -2845,7 +2846,7 @@
         "amount": 3.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Quickwire",
@@ -2861,7 +2862,7 @@
         "amount": 5.0
       },
       "time": 5.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Radio Control Unit",
@@ -2885,7 +2886,7 @@
         "amount": 2.0
       },
       "time": 48.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Raw Quartz (Bauxite)",
@@ -2905,7 +2906,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Raw Quartz (Coal)",
@@ -2925,7 +2926,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Reanimated SAM",
@@ -2941,7 +2942,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Rebar Gun",
@@ -2981,7 +2982,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Reinforced Iron Plate",
@@ -3001,7 +3002,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Residual Fuel",
@@ -3017,7 +3018,7 @@
         "amount": 4.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Residual Plastic",
@@ -3037,7 +3038,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Residual Rubber",
@@ -3057,7 +3058,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Rifle",
@@ -3105,7 +3106,7 @@
         "amount": 15.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Rocket Fuel",
@@ -3125,7 +3126,7 @@
         "amount": 10.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Compacted Coal",
         "amount": 1.0
@@ -3149,7 +3150,7 @@
         "amount": 1.0
       },
       "time": 15.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Rubber",
@@ -3165,7 +3166,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Heavy Oil Residue",
         "amount": 2.0
@@ -3193,7 +3194,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Screws",
@@ -3209,7 +3210,7 @@
         "amount": 4.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Shatter Rebar",
@@ -3229,7 +3230,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Silica",
@@ -3245,7 +3246,7 @@
         "amount": 5.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Singularity Cell",
@@ -3273,7 +3274,7 @@
         "amount": 10.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Smart Plating",
@@ -3293,7 +3294,7 @@
         "amount": 1.0
       },
       "time": 30.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Smokeless Powder",
@@ -3313,7 +3314,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Snowball",
@@ -3329,7 +3330,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Solid Biofuel",
@@ -3345,7 +3346,7 @@
         "amount": 4.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Sparkly Fireworks",
@@ -3365,7 +3366,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Spitter Protein",
@@ -3381,7 +3382,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Stator",
@@ -3401,7 +3402,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Steel Beam",
@@ -3417,7 +3418,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Steel Ingot",
@@ -3437,7 +3438,7 @@
         "amount": 3.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Steel Pipe",
@@ -3453,7 +3454,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Stinger Protein",
@@ -3469,7 +3470,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Stun Rebar",
@@ -3489,7 +3490,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Sulfur (Coal)",
@@ -3509,7 +3510,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Sulfur (Iron)",
@@ -3529,7 +3530,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Sulfuric Acid",
@@ -3549,7 +3550,7 @@
         "amount": 5.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Supercomputer",
@@ -3577,7 +3578,7 @@
         "amount": 1.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Superposition Oscillator",
@@ -3629,7 +3630,7 @@
         "amount": 1.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Synthetic Power Shard",
@@ -3713,7 +3714,7 @@
         "amount": 2.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Time Crystal",
@@ -3729,7 +3730,7 @@
         "amount": 1.0
       },
       "time": 10.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Turbo Motor",
@@ -3757,7 +3758,7 @@
         "amount": 1.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Turbo Rifle Ammo",
@@ -3781,7 +3782,7 @@
         "amount": 50.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Turbo Rifle Ammo",
@@ -3805,7 +3806,7 @@
         "amount": 50.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Unpackage Alumina Solution",
@@ -3821,7 +3822,7 @@
         "amount": 2.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -3841,7 +3842,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -3861,7 +3862,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -3881,7 +3882,7 @@
         "amount": 4.0
       },
       "time": 3.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Fluid Tank",
         "amount": 2.0
@@ -3901,7 +3902,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -3921,7 +3922,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Fluid Tank",
         "amount": 1.0
@@ -3941,7 +3942,7 @@
         "amount": 4.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Fluid Tank",
         "amount": 1.0
@@ -3961,7 +3962,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -3981,7 +3982,7 @@
         "amount": 2.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Fluid Tank",
         "amount": 1.0
@@ -4001,7 +4002,7 @@
         "amount": 1.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 1.0
@@ -4021,7 +4022,7 @@
         "amount": 2.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -4041,7 +4042,7 @@
         "amount": 2.0
       },
       "time": 1.0,
-      "power": 0,
+      "power": 10,
       "byproduct": {
         "item": "Empty Canister",
         "amount": 2.0
@@ -4069,7 +4070,7 @@
         "amount": 1.0
       },
       "time": 150.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Uranium Fuel Rod (burning)",
@@ -4105,7 +4106,7 @@
         "amount": 12.0
       },
       "time": 6.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Versatile Framework",
@@ -4125,7 +4126,7 @@
         "amount": 2.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Vitamin Inhaler",
@@ -4161,7 +4162,7 @@
         "amount": 2.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Xeno-Basher",
@@ -4265,7 +4266,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Alclad Casing",
@@ -4285,7 +4286,7 @@
         "amount": 15.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Aluminum Beam",
@@ -4301,7 +4302,7 @@
         "amount": 3.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Aluminum Rod",
@@ -4317,7 +4318,7 @@
         "amount": 7.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Automated Miner",
@@ -4337,7 +4338,7 @@
         "amount": 1.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Automated Speed Wiring",
@@ -4361,7 +4362,7 @@
         "amount": 4.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Basic Iron Ingot",
@@ -4381,7 +4382,7 @@
         "amount": 10.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Biocoal",
@@ -4397,7 +4398,7 @@
         "amount": 6.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Bolted Frame",
@@ -4417,7 +4418,7 @@
         "amount": 2.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Bolted Iron Plate",
@@ -4437,7 +4438,7 @@
         "amount": 3.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Cast Screws",
@@ -4453,7 +4454,7 @@
         "amount": 20.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Caterium Circuit Board",
@@ -4473,7 +4474,7 @@
         "amount": 7.0
       },
       "time": 48.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Caterium Computer",
@@ -4497,7 +4498,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Caterium Wire",
@@ -4513,7 +4514,7 @@
         "amount": 8.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Charcoal",
@@ -4529,7 +4530,7 @@
         "amount": 10.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Cheap Silica",
@@ -4549,7 +4550,7 @@
         "amount": 7.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Classic Battery",
@@ -4577,7 +4578,7 @@
         "amount": 4.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Cloudy Diamonds",
@@ -4597,7 +4598,7 @@
         "amount": 1.0
       },
       "time": 3.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Coated Cable",
@@ -4617,7 +4618,7 @@
         "amount": 9.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Coated Iron Canister",
@@ -4637,7 +4638,7 @@
         "amount": 4.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Coated Iron Plate",
@@ -4657,7 +4658,7 @@
         "amount": 10.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Coke Steel Ingot",
@@ -4677,7 +4678,7 @@
         "amount": 20.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Compacted Coal",
@@ -4697,7 +4698,7 @@
         "amount": 5.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Compacted Steel Ingot",
@@ -4717,7 +4718,7 @@
         "amount": 4.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Cooling Device",
@@ -4741,7 +4742,7 @@
         "amount": 2.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Copper Alloy Ingot",
@@ -4761,7 +4762,7 @@
         "amount": 10.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Copper Rotor",
@@ -4781,7 +4782,7 @@
         "amount": 3.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Crystal Computer",
@@ -4801,7 +4802,7 @@
         "amount": 2.0
       },
       "time": 36.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Dark Matter Crystallization",
@@ -4857,7 +4858,7 @@
         "amount": 10.0
       },
       "time": 3.0,
-      "power": 400,
+      "power": 5,
       "byproduct": {
         "item": "Compacted Coal",
         "amount": 2.0
@@ -4881,7 +4882,7 @@
         "amount": 10.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Diluted Packaged Fuel",
@@ -4901,7 +4902,7 @@
         "amount": 2.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Distilled Silica",
@@ -4925,7 +4926,7 @@
         "amount": 27.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Water",
         "amount": 8.0
@@ -4949,7 +4950,7 @@
         "amount": 2.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Electrode Aluminum Scrap",
@@ -4969,7 +4970,7 @@
         "amount": 20.0
       },
       "time": 4.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Water",
         "amount": 7.0
@@ -4993,7 +4994,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Electromagnetic Connection Rod",
@@ -5013,7 +5014,7 @@
         "amount": 2.0
       },
       "time": 15.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Encased Industrial Pipe",
@@ -5033,7 +5034,7 @@
         "amount": 1.0
       },
       "time": 15.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Fertile Uranium",
@@ -5061,7 +5062,7 @@
         "amount": 20.0
       },
       "time": 12.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Water",
         "amount": 8.0
@@ -5085,7 +5086,7 @@
         "amount": 6.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Fine Concrete",
@@ -5105,7 +5106,7 @@
         "amount": 10.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Flexible Framework",
@@ -5129,7 +5130,7 @@
         "amount": 2.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Fused Quartz Crystal",
@@ -5149,7 +5150,7 @@
         "amount": 18.0
       },
       "time": 20.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Fused Quickwire",
@@ -5169,7 +5170,7 @@
         "amount": 12.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Fused Wire",
@@ -5189,7 +5190,7 @@
         "amount": 30.0
       },
       "time": 20.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Heat Exchanger",
@@ -5209,7 +5210,7 @@
         "amount": 1.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Heat-Fused Frame",
@@ -5237,7 +5238,7 @@
         "amount": 1.0
       },
       "time": 20.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Heavy Encased Frame",
@@ -5265,7 +5266,7 @@
         "amount": 3.0
       },
       "time": 64.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Heavy Flexible Frame",
@@ -5293,7 +5294,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Heavy Oil Residue",
@@ -5309,7 +5310,7 @@
         "amount": 4.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Polymer Resin",
         "amount": 2.0
@@ -5341,7 +5342,7 @@
         "amount": 4.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Instant Plutonium Cell",
@@ -5361,7 +5362,7 @@
         "amount": 20.0
       },
       "time": 120.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Instant Scrap",
@@ -5389,7 +5390,7 @@
         "amount": 30.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Water",
         "amount": 5.0
@@ -5413,7 +5414,7 @@
         "amount": 20.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Insulated Crystal Oscillator",
@@ -5437,7 +5438,7 @@
         "amount": 1.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Iron Alloy Ingot",
@@ -5457,7 +5458,7 @@
         "amount": 15.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Iron Pipe",
@@ -5473,7 +5474,7 @@
         "amount": 5.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Iron Wire",
@@ -5489,7 +5490,7 @@
         "amount": 9.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Leached Caterium Ingot",
@@ -5509,7 +5510,7 @@
         "amount": 6.0
       },
       "time": 10.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Leached Copper Ingot",
@@ -5529,7 +5530,7 @@
         "amount": 22.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Leached Iron Ingot",
@@ -5549,7 +5550,7 @@
         "amount": 10.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Molded Beam",
@@ -5569,7 +5570,7 @@
         "amount": 9.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Molded Steel Pipe",
@@ -5589,7 +5590,7 @@
         "amount": 5.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Nitro Rocket Fuel",
@@ -5617,7 +5618,7 @@
         "amount": 6.0
       },
       "time": 2.4,
-      "power": 0,
+      "power": 75,
       "byproduct": {
         "item": "Compacted Coal",
         "amount": 1.0
@@ -5641,7 +5642,7 @@
         "amount": 1.0
       },
       "time": 20.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Oil-Based Diamonds",
@@ -5657,7 +5658,7 @@
         "amount": 2.0
       },
       "time": 3.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Petroleum Diamonds",
@@ -5673,7 +5674,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Pink Diamonds",
@@ -5693,7 +5694,7 @@
         "amount": 1.0
       },
       "time": 4.0,
-      "power": 400
+      "power": 5
     },
     {
       "name": "Plastic AI Limiter",
@@ -5713,7 +5714,7 @@
         "amount": 2.0
       },
       "time": 15.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Plastic Smart Plating",
@@ -5737,7 +5738,7 @@
         "amount": 2.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Plutonium Fuel Unit",
@@ -5757,7 +5758,7 @@
         "amount": 1.0
       },
       "time": 120.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Polyester Fabric",
@@ -5777,7 +5778,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Polymer Resin",
@@ -5793,7 +5794,7 @@
         "amount": 13.0
       },
       "time": 6.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Heavy Oil Residue",
         "amount": 2.0
@@ -5813,7 +5814,7 @@
         "amount": 1.0
       },
       "time": 2.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Pure Caterium Ingot",
@@ -5833,7 +5834,7 @@
         "amount": 1.0
       },
       "time": 5.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Pure Copper Ingot",
@@ -5853,7 +5854,7 @@
         "amount": 15.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Pure Iron Ingot",
@@ -5873,7 +5874,7 @@
         "amount": 13.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Pure Quartz Crystal",
@@ -5893,7 +5894,7 @@
         "amount": 7.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Quartz Purification",
@@ -5913,7 +5914,7 @@
         "amount": 15.0
       },
       "time": 12.0,
-      "power": 0,
+      "power": 30,
       "byproduct": {
         "item": "Dissolved Silica",
         "amount": 12.0
@@ -5937,7 +5938,7 @@
         "amount": 11.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Quickwire Stator",
@@ -5957,7 +5958,7 @@
         "amount": 2.0
       },
       "time": 15.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Radio Connection Unit",
@@ -5981,7 +5982,7 @@
         "amount": 1.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Radio Control System",
@@ -6009,7 +6010,7 @@
         "amount": 3.0
       },
       "time": 40.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Recycled Plastic",
@@ -6029,7 +6030,7 @@
         "amount": 12.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Recycled Rubber",
@@ -6049,7 +6050,7 @@
         "amount": 12.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Rigor Motor",
@@ -6073,7 +6074,7 @@
         "amount": 6.0
       },
       "time": 48.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Rubber Concrete",
@@ -6093,7 +6094,7 @@
         "amount": 9.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Silicon Circuit Board",
@@ -6113,7 +6114,7 @@
         "amount": 5.0
       },
       "time": 24.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Silicon High-Speed Connector",
@@ -6137,7 +6138,7 @@
         "amount": 2.0
       },
       "time": 40.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Sloppy Alumina",
@@ -6157,7 +6158,7 @@
         "amount": 12.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Solid Steel Ingot",
@@ -6177,7 +6178,7 @@
         "amount": 3.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Steamed Copper Sheet",
@@ -6197,7 +6198,7 @@
         "amount": 3.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Steel Canister",
@@ -6213,7 +6214,7 @@
         "amount": 4.0
       },
       "time": 6.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Steel Cast Plate",
@@ -6233,7 +6234,7 @@
         "amount": 3.0
       },
       "time": 4.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Steel Rod",
@@ -6249,7 +6250,7 @@
         "amount": 4.0
       },
       "time": 5.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Steel Rotor",
@@ -6269,7 +6270,7 @@
         "amount": 1.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Steel Screws",
@@ -6285,7 +6286,7 @@
         "amount": 52.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 4
     },
     {
       "name": "Steeled Frame",
@@ -6305,7 +6306,7 @@
         "amount": 3.0
       },
       "time": 60.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Stitched Iron Plate",
@@ -6325,7 +6326,7 @@
         "amount": 3.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 15
     },
     {
       "name": "Super-State Computer",
@@ -6353,7 +6354,7 @@
         "amount": 1.0
       },
       "time": 25.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Tempered Caterium Ingot",
@@ -6373,7 +6374,7 @@
         "amount": 3.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Tempered Copper Ingot",
@@ -6393,7 +6394,7 @@
         "amount": 12.0
       },
       "time": 12.0,
-      "power": 0
+      "power": 16
     },
     {
       "name": "Turbo Blend Fuel",
@@ -6421,7 +6422,7 @@
         "amount": 6.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 75
     },
     {
       "name": "Turbo Diamonds",
@@ -6441,7 +6442,7 @@
         "amount": 3.0
       },
       "time": 3.0,
-      "power": 750
+      "power": 1500
     },
     {
       "name": "Turbo Electric Motor",
@@ -6469,7 +6470,7 @@
         "amount": 3.0
       },
       "time": 64.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Turbo Heavy Fuel",
@@ -6489,7 +6490,7 @@
         "amount": 4.0
       },
       "time": 8.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Turbo Pressure Motor",
@@ -6517,7 +6518,7 @@
         "amount": 2.0
       },
       "time": 32.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Turbofuel",
@@ -6537,7 +6538,7 @@
         "amount": 5.0
       },
       "time": 16.0,
-      "power": 0
+      "power": 30
     },
     {
       "name": "Uranium Fuel Unit",
@@ -6565,7 +6566,7 @@
         "amount": 3.0
       },
       "time": 300.0,
-      "power": 0
+      "power": 55
     },
     {
       "name": "Wet Concrete",
@@ -6585,7 +6586,370 @@
         "amount": 4.0
       },
       "time": 3.0,
-      "power": 0
+      "power": 30
+    },
+    {
+      "name": "Iron Ore (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Iron Ore",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Iron Ore (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Iron Ore",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Iron Ore (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Iron Ore",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Copper Ore (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Copper Ore",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Copper Ore (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Copper Ore",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Copper Ore (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Copper Ore",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Limestone (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Limestone",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Limestone (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Limestone",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Limestone (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Limestone",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Coal (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Coal",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Coal (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Coal",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Coal (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Coal",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Caterium Ore (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Caterium Ore",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Caterium Ore (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Caterium Ore",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Caterium Ore (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Caterium Ore",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Raw Quartz (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Raw Quartz",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Raw Quartz (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Raw Quartz",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Raw Quartz (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Raw Quartz",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Sulfur (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Sulfur",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Sulfur (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Sulfur",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Sulfur (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Sulfur",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Bauxite (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Bauxite",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Bauxite (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Bauxite",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Bauxite (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Bauxite",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Uranium (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "Uranium",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "Uranium (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "Uranium",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "Uranium (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "Uranium",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "S.A.M. Ore (Miner Mk.1)",
+      "building": "Miner Mk.1",
+      "inputs": [],
+      "output": {
+        "item": "S.A.M. Ore",
+        "amount": 60
+      },
+      "time": 60,
+      "power": 5
+    },
+    {
+      "name": "S.A.M. Ore (Miner Mk.2)",
+      "building": "Miner Mk.2",
+      "inputs": [],
+      "output": {
+        "item": "S.A.M. Ore",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 12
+    },
+    {
+      "name": "S.A.M. Ore (Miner Mk.3)",
+      "building": "Miner Mk.3",
+      "inputs": [],
+      "output": {
+        "item": "S.A.M. Ore",
+        "amount": 240
+      },
+      "time": 60,
+      "power": 30
+    },
+    {
+      "name": "Crude Oil (Oil Extractor)",
+      "building": "Oil Extractor",
+      "inputs": [],
+      "output": {
+        "item": "Crude Oil",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 40
+    },
+    {
+      "name": "Water (Water Extractor)",
+      "building": "Water Extractor",
+      "inputs": [],
+      "output": {
+        "item": "Water",
+        "amount": 120
+      },
+      "time": 60,
+      "power": 20
+    },
+    {
+      "name": "Nitrogen Gas (Resource Well Pressurizer)",
+      "building": "Resource Well Pressurizer",
+      "inputs": [],
+      "output": {
+        "item": "Nitrogen Gas",
+        "amount": 300
+      },
+      "time": 60,
+      "power": 150
     }
   ]
 }

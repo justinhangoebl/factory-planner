@@ -45,14 +45,27 @@
                 style="position:absolute; right:0.5rem; top:0.5rem; background:transparent; border:none; color:#ff6b6b; font-weight:900; font-size:2rem; line-height:1; padding:0 0.25rem; cursor:pointer;">&times;</button>
             </div>
             <div class="node-row node-controls controls" data-bind="controls"></div>
+            <div class="io-visible" style="margin-top:0.5rem;">
+              <table style="width:100%; border-collapse:collapse;">
+                <tbody>
+                  <tr>
+                    <td style="padding:0.25rem 0.5rem;" data-bind="io-output-item"></td>
+                    <td style="padding:0.25rem 0.5rem; text-align:right;" data-bind="io-output-rate"></td>
+                  </tr>
+                  <tr data-bind="io-residual-row" style="display:none;">
+                    <td style="padding:0.25rem 0.5rem;" data-bind="io-residual-item"></td>
+                    <td style="padding:0.25rem 0.5rem; text-align:right;" data-bind="io-residual-rate"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <details class="io" data-bind="io" style="margin-top:0.5rem;">
-              <summary style="cursor:pointer; color:#8b95a5;">I / O</summary>
+              <summary style="cursor:pointer; color:#8b95a5;">Inputs</summary>
               <table style="width:100%; margin-top:0.5rem; border-collapse:collapse;">
                 <thead>
                   <tr style="color:#ffc107; text-align:left;">
-                    <th style="padding:0.25rem 0.5rem;">Type</th>
                     <th style="padding:0.25rem 0.5rem;">Item</th>
-                    <th style="padding:0.25rem 0.5rem;">Rate (/min)</th>
+                    <th style="padding:0.25rem 0.5rem;text-align:right;">Rate (/min)</th>
                   </tr>
                 </thead>
                 <tbody data-bind="io-body"></tbody>

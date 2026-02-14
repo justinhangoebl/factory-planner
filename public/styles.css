@@ -506,12 +506,7 @@ td.surplus {
 }
 
 /* Node control form elements */
-.node-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.node-count,
+
 .node-variant {
   padding: 0.45rem 0.6rem;
   border-radius: 6px;
@@ -520,20 +515,105 @@ td.surplus {
   color: inherit;
   font-family: inherit;
   font-size: 0.95rem;
-}
-.node-count {
-  width: 5rem;
-  text-align: right;
-}
-.node-variant {
   min-width: 12rem;
   padding-right: 2.25rem; /* space for dropdown arrow */
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e0e6ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 0.6rem center;
-  background-size: 12px 12px;
+  height: 2rem;
 }
+
+.node-count {
+  max-width: 6rem;
+  min-width: 6rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--yellow-12);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: right;
+  appearance: textfield; /* Remove default number input styling */
+  -moz-appearance: textfield;
+  height: 2rem;
+}
+
+.node-count::-webkit-outer-spin-button,
+.node-count::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.node-count:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 16px var(--yellow-30);
+}
+
+/* Custom variant dropdown (themed overlay) */
+.node-variant-wrapper {
+  position: relative;
+  display: inline-block;
+  min-width: 12rem;
+}
+.node-variant-button {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--yellow-12);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.node-variant-button::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e0e6ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+}
+
+.node-variant-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 0.45rem;
+  background: #0f1420;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  max-height: 240px;
+  overflow: auto;
+  box-shadow:
+    0 12px 40px rgba(2, 6, 23, 0.75),
+    0 0 0 4px rgba(255, 201, 0, 0.03);
+  display: none;
+  z-index: 60;
+}
+.node-variant-wrapper.open .node-variant-list {
+  display: block;
+}
+.node-variant-option {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: #e6eef8;
+}
+.node-variant-option:hover,
+.node-variant-option:focus {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+.node-variant-option + .node-variant-option {
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
 .node-variant:focus,
 .node-count:focus {
   outline: none;
