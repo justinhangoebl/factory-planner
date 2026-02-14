@@ -41,7 +41,8 @@ const ProductionGraph = ({ productionChain }) => {
   // Calculate positions for tree layout
   const calculateLayout = (node, depth = 0, index = 0, parentWidth = 1) => {
     const children = node.children || [];
-    const childCount = children.length || 1;
+    const byproducts = node.byproducts || [];
+    const totalChildren = children.length + byproducts.length || 1;
     
     let positions = [];
     let currentIndex = index;
@@ -57,7 +58,7 @@ const ProductionGraph = ({ productionChain }) => {
       depth
     });
 
-    // Add children
+    // Add children (inputs)
     children.forEach((child, i) => {
       const childPositions = calculateLayout(
         child,
@@ -67,6 +68,16 @@ const ProductionGraph = ({ productionChain }) => {
       );
       positions = positions.concat(childPositions);
       currentIndex += 1;
+    });
+
+    // Add byproducts (outputs) - position to the right
+    byproducts.forEach((byproduct, i) => {
+      positions.push({
+        ...byproduct,
+        x: x + nodeWidth + 100,
+        y: y,
+        depth: depth
+      });
     });
 
     return positions;
@@ -81,6 +92,7 @@ const ProductionGraph = ({ productionChain }) => {
   // Create links between nodes
   const links = [];
   nodes.forEach(node => {
+    // Links to inputs (children)
     if (node.children) {
       node.children.forEach(child => {
         const childNode = nodes.find(n => n.item === child.item && n.depth === node.depth + 1);
@@ -89,7 +101,24 @@ const ProductionGraph = ({ productionChain }) => {
             x1: node.x + nodeWidth / 2,
             y1: node.y + nodeHeight,
             x2: childNode.x + nodeWidth / 2,
-            y2: childNode.y
+            y2: childNode.y,
+            type: 'input'
+          });
+        }
+      });
+    }
+    
+    // Links to byproducts (outputs to the side)
+    if (node.byproducts) {
+      node.byproducts.forEach(byproduct => {
+        const byproductNode = nodes.find(n => n.item === byproduct.item && n.isByproduct && n.depth === node.depth);
+        if (byproductNode) {
+          links.push({
+            x1: node.x + nodeWidth,
+            y1: node.y + nodeHeight / 2,
+            x2: byproductNode.x,
+            y2: byproductNode.y + nodeHeight / 2,
+            type: 'byproduct'
           });
         }
       });
@@ -100,14 +129,21 @@ const ProductionGraph = ({ productionChain }) => {
     React.createElement('svg', { className: 'graph-svg', viewBox: `0 0 ${maxX} ${maxY}`, preserveAspectRatio: 'xMidYMid meet' },
       // Links
       links.map((link, i) => 
-        React.createElement('path', {
-          key: `link-${i}`,
-          className: 'graph-link',
-          d: `M ${link.x1} ${link.y1} 
-              C ${link.x1} ${link.y1 + 40}, 
-                ${link.x2} ${link.y2 - 40}, 
-                ${link.x2} ${link.y2}`
-        })
+        link.type === 'byproduct' 
+          ? React.createElement('path', {
+              key: `link-${i}`,
+              className: 'graph-link byproduct',
+              d: `M ${link.x1} ${link.y1} L ${link.x2} ${link.y2}`,
+              style: { stroke: 'rgba(255, 152, 0, 0.5)', strokeDasharray: '5,5' }
+            })
+          : React.createElement('path', {
+              key: `link-${i}`,
+              className: 'graph-link',
+              d: `M ${link.x1} ${link.y1} 
+                  C ${link.x1} ${link.y1 + 40}, 
+                    ${link.x2} ${link.y2 - 40}, 
+                    ${link.x2} ${link.y2}`
+            })
       ),
       // Nodes
       nodes.map((node, i) => 
@@ -118,7 +154,7 @@ const ProductionGraph = ({ productionChain }) => {
         },
           // Background
           React.createElement('rect', {
-            className: `node-bg ${node.isRaw ? 'raw' : 'processed'}`,
+            className: `node-bg ${node.isByproduct ? 'byproduct' : node.isRaw ? 'raw' : 'processed'}`,
             width: nodeWidth,
             height: nodeHeight
           }),
@@ -128,7 +164,7 @@ const ProductionGraph = ({ productionChain }) => {
             x: nodeWidth / 2,
             y: 25,
             textAnchor: 'middle'
-          }, node.item),
+          }, node.isByproduct ? `${node.item} (Byproduct)` : node.item),
           // Rate
           React.createElement('text', {
             className: 'node-detail',
@@ -136,15 +172,15 @@ const ProductionGraph = ({ productionChain }) => {
             y: 42,
             textAnchor: 'middle'
           }, `${node.rate.toFixed(2)}/min`),
-          // Building/Extractor
-          React.createElement('text', {
+          // Building/Extractor (only for non-byproducts)
+          !node.isByproduct && React.createElement('text', {
             className: 'node-detail',
             x: nodeWidth / 2,
             y: 56,
             textAnchor: 'middle'
           }, node.building || node.extractor || 'Raw Resource'),
-          // Count and Power
-          React.createElement('text', {
+          // Count and Power (only for non-byproducts)
+          !node.isByproduct && React.createElement('text', {
             className: 'node-detail',
             x: nodeWidth / 2,
             y: 70,
@@ -197,7 +233,8 @@ const SatisfactoryPlanner = () => {
         extractor: extractor?.type || 'Manual',
         extractorCount: extractor ? Math.ceil(requiredRate / extractor.rate) : 0,
         power: extractor ? (Math.ceil(requiredRate / extractor.rate) * extractor.power) : 0,
-        children: []
+        children: [],
+        byproducts: []
       };
     }
 
@@ -211,6 +248,17 @@ const SatisfactoryPlanner = () => {
       return calculateChain(input.item, inputRate);
     });
 
+    // Calculate byproduct production
+    const byproducts = [];
+    if (recipe.byproduct) {
+      const byproductRate = (recipe.byproduct.rate / recipe.output.rate) * requiredRate;
+      byproducts.push({
+        item: recipe.byproduct.item,
+        rate: byproductRate,
+        isByproduct: true
+      });
+    }
+
     return {
       item,
       rate: requiredRate,
@@ -219,7 +267,8 @@ const SatisfactoryPlanner = () => {
       power: totalPower,
       actualOutput: Math.ceil(buildingCount) * recipe.output.rate,
       overproduction: (Math.ceil(buildingCount) * recipe.output.rate) - requiredRate,
-      children
+      children,
+      byproducts
     };
   };
 
@@ -234,6 +283,19 @@ const SatisfactoryPlanner = () => {
   const flattenChain = (node, depth = 0, result = []) => {
     result.push({ ...node, depth });
     node.children.forEach(child => flattenChain(child, depth + 1, result));
+    // Add byproducts at same depth but marked
+    if (node.byproducts) {
+      node.byproducts.forEach(byproduct => {
+        result.push({ 
+          ...byproduct, 
+          depth, 
+          building: `${node.building} (Byproduct)`,
+          buildingCount: 0,
+          power: 0,
+          overproduction: 0
+        });
+      });
+    }
     return result;
   };
 
@@ -268,10 +330,11 @@ const SatisfactoryPlanner = () => {
     if (!productionChain) return;
     
     const flat = flattenChain(productionChain);
-    const headers = ['Item', 'Rate/min', 'Building', 'Count', 'Power (MW)', 'Overproduction', 'Level'];
+    const headers = ['Item', 'Type', 'Rate/min', 'Building', 'Count', 'Power (MW)', 'Overproduction', 'Level'];
     
     const rows = flat.map(node => [
       node.item,
+      node.isByproduct ? 'Byproduct' : node.isRaw ? 'Raw' : 'Processed',
       node.rate.toFixed(2),
       node.building || node.extractor || 'Raw',
       node.buildingCount?.toFixed(2) || node.extractorCount || '-',
@@ -420,11 +483,14 @@ const SatisfactoryPlanner = () => {
           ),
           React.createElement('tbody', null,
             flatChain.map((node, index) =>
-              React.createElement('tr', { key: index },
+              React.createElement('tr', { 
+                key: index,
+                style: node.isByproduct ? { background: 'rgba(255, 152, 0, 0.1)' } : {}
+              },
                 React.createElement('td', { style: { paddingLeft: `${node.depth * 2 + 0.75}rem` } },
-                  node.item
+                  node.isByproduct ? `↳ ${node.item} (Byproduct)` : node.item
                 ),
-                React.createElement('td', { className: 'rate', style: { textAlign: 'right' } },
+                React.createElement('td', { className: node.isByproduct ? 'surplus' : 'rate', style: { textAlign: 'right' } },
                   node.rate.toFixed(2)
                 ),
                 React.createElement('td', { className: 'building-type' },

@@ -1,8 +1,9 @@
 {
   "name": "factory-planner",
   "compatibility_date": "2026-02-06",
-  "assets": {
-    "directory": "./public",
-    "binding": "ASSETS",
+  "type": "assets",
+  "site": {
+    "bucket": "./public",
+    "entry-point": "workers-site",
   },
 }

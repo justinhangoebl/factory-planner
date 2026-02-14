@@ -258,6 +258,13 @@ body {
   stroke-width: 2;
 }
 
+.node-bg.byproduct {
+  fill: rgba(255, 152, 0, 0.15);
+  stroke: #ff9800;
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+}
+
 .node-text {
   fill: #e0e6ed;
   font-size: 12px;
