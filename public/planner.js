@@ -303,7 +303,7 @@
   // extractor UI removed — extractors are available via recipes sidebar
 
   // Export CSV / HTML table: include per-unit and total-per-building columns for each item
-  function buildTableAndCsv() {
+  function buildTableAndCsv(useFormulas = false) {
     const itemsSet = new Set();
     nodes.forEach(n => {
       if (n.item) itemsSet.add(n.item);
@@ -312,17 +312,17 @@
     });
     const items = Array.from(itemsSet).sort();
 
-    // headers: MULTIPLIER, NAME, for each item -> [item per, item total], ENERGY
-    const headers = ['MULTIPLIER','NAME'];
-    items.forEach(it=>{ headers.push(`${it} per`); headers.push(`${it} total`); });
-    headers.push('ENERGY');
+    // headers: Multi, Building, Item, for each item -> [item per, item total], Energy
+    const headers = ['Multi','Building'];
+    items.forEach(it=>{ headers.push(`${it}`); headers.push(`total`); });
+    headers.push('Energy');
 
     const rows = [];
     nodes.forEach(n=>{
       const multiplier = n.count || 0;
-      const nameLabel = n.building ? `${n.building} — ${n.item}` : n.item || '';
-      const row = [multiplier, nameLabel];
-      items.forEach(it=>{
+      const buildingLabel = n.building ? `${n.item} ${n.building}` : '';
+      const row = [multiplier, buildingLabel];
+      items.forEach(it =>{
         let perUnit = 0;
         if (it === n.item) perUnit = n.perOutput || 0;
         else if (n.byproduct && n.byproduct.item === it) perUnit = n.byproduct.rate || 0;
@@ -331,20 +331,23 @@
           if (inp) perUnit = - (inp.rate || 0);
         }
         const total = perUnit * multiplier;
-        row.push(Number(perUnit.toFixed(2)));
-        row.push(Number(total.toFixed(2)));
+        if (useFormulas) {
+          row.push(Number(perUnit.toFixed(2)));
+          row.push(null);
+        } else {
+          row.push(Number(perUnit.toFixed(2)));
+          row.push(Number(total.toFixed(2)));
+        }
       });
       const energy = (n.power||0) * multiplier;
       row.push(Number(energy.toFixed(2)));
       rows.push(row);
     });
 
-    // SUM row: ['', 'SUM', per-unit blanks, totals per item sum..., total energy]
+    // SUM row (must align with leading columns: Multi, Building, Item)
     const sumRow = ['','SUM'];
     items.forEach(it=>{
-      // per-unit column left blank for SUM
       sumRow.push('');
-      // total-per-building sum
       let total = 0;
       nodes.forEach(n=>{
         const multiplier = n.count || 0;
@@ -363,16 +366,61 @@
     sumRow.push(Number(totalEnergy.toFixed(2)));
     rows.push(sumRow);
 
-    // build CSV
+    function colLetter(n) {
+      let s = '';
+      let num = n + 1;
+      while (num > 0) {
+        const rem = (num - 1) % 26;
+        s = String.fromCharCode(65 + rem) + s;
+        num = Math.floor((num - 1) / 26);
+      }
+      return s;
+    }
+
     const escapeCell = v => typeof v === 'string' && (v.includes(',')||v.includes('\n')) ? '"'+v.replace(/"/g,'""')+'"' : String(v);
     const csvHeader = headers.map(h => escapeCell(h === '' || h == null ? '-' : h)).join(',');
-    const csvRows = rows.map(r=> r.map(c => (c=== '' || c==null) ? '-' : escapeCell(c)).join(',')).join('\n');
+    // If formulas are enabled, ensure SUM row references the correct total columns
+    if (useFormulas) {
+      // total columns are at indices: 2 + (i*2) + 1 -> 3,5,7...
+      items.forEach((it, idx) => {
+        const totalColIndex = 2 + (idx * 2) + 1;
+        // rows.length is dataRows + 1 (because sumRow was pushed), so endRow for SUM is rows.length
+        const endRow = rows.length;
+        const col = colLetter(totalColIndex);
+        const sumFormula = `=SUM(${col}2:${col}${endRow})`;
+        // place formula string into the sumRow position
+        rows[rows.length - 1][totalColIndex] = sumFormula;
+      });
+    
+    }
+
+    const csvRows = rows.map((r, ridx)=>{
+      const rowNum = ridx + 2;
+      return r.map((c, ci)=>{
+        if (useFormulas && c === null) {
+          // for a total cell, reference the previous per-unit column
+          const perCol = colLetter(ci - 1);
+          const mulCol = colLetter(0);
+          const formula = `=${perCol}${rowNum}*${mulCol}${rowNum}`;
+          return escapeCell(formula);
+        }
+        return escapeCell((c=== '' || c==null) ? '-' : c);
+      }).join(',');
+    }).join('\n');
     const csv = csvHeader + '\n' + csvRows + '\n';
 
-    // build HTML table for clipboard copy (easier to paste to Sheets)
     let html = '<table><thead><tr>' + headers.map(h=>`<th>${h=== ''||h==null?'-':String(h)}</th>`).join('') + '</tr></thead><tbody>';
-    rows.forEach(r=>{
-      html += '<tr>' + r.map(c=>`<td>${(c=== ''||c==null)?'-':String(c)}</td>`).join('') + '</tr>';
+    rows.forEach((r, ridx)=>{
+      const rowNum = ridx + 2;
+      html += '<tr>' + r.map((c, ci)=>{
+        if (useFormulas && c === null) {
+          const perCol = colLetter(ci - 1);
+          const mulCol = colLetter(0);
+          const formula = `=${perCol}${rowNum}*${mulCol}${rowNum}`;
+          return `<td>${formula}</td>`;
+        }
+        return `<td>${(c=== ''||c==null)?'-':String(c)}</td>`;
+      }).join('') + '</tr>';
     });
     html += '</tbody></table>';
 
@@ -460,13 +508,23 @@
 
     async function doCopyCsvFeedback() {
       try {
-        const out = buildTableAndCsv();
+        const out = buildTableAndCsv(true); // produce spreadsheet formulas for totals
         // prefer rich clipboard (text/html) when available
         if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem) {
-          const blobHtml = new Blob([out.html], { type: 'text/html' });
-          const blobText = new Blob([out.csv], { type: 'text/plain' });
-          const item = new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText });
-          await navigator.clipboard.write([item]);
+            // provide a full HTML document to improve Excel/Sheets paste behavior
+            const fullHtml = '<!doctype html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body>' + out.html + '</body></html>';
+            const blobHtml = new Blob([fullHtml], { type: 'text/html' });
+            const blobText = new Blob([out.csv], { type: 'text/plain' });
+            try {
+              // try including Excel MIME; some browsers reject unknown types
+              const blobHtmlExcel = new Blob([fullHtml], { type: 'application/vnd.ms-excel' });
+              const item = new ClipboardItem({ 'text/html': blobHtml, 'application/vnd.ms-excel': blobHtmlExcel, 'text/plain': blobText });
+              await navigator.clipboard.write([item]);
+            } catch (err) {
+              // fallback to a safer set of types
+              const item = new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText });
+              await navigator.clipboard.write([item]);
+            }
         } else if (navigator.clipboard && navigator.clipboard.writeText) {
           // fallback to plain text CSV
           await navigator.clipboard.writeText(out.csv);
