@@ -213,23 +213,20 @@ const SatisfactoryPlanner = () => {
 
   // Load recipe data
   useEffect(() => {
-    // Try new complete recipe DB first, fall back to recipes.json
+    // Load the complete recipe DB only
     const tryLoad = async () => {
       try {
-        const urls = ['satisfactory-recipes-complete.json', 'recipes.json'];
         let loaded = null;
-        for (const u of urls) {
+        const candidates = ['satisfactory_complete_recipes.json','satisfactory-recipes-complete.json'];
+        for (const u of candidates) {
           try {
             const res = await fetch(u);
             if (!res.ok) continue;
-            const d = await res.json();
-            loaded = d;
+            loaded = await res.json();
             break;
-          } catch (e) {
-            continue;
-          }
+          } catch (e) { continue; }
         }
-        if (!loaded) throw new Error('No recipe DB found');
+        if (!loaded) throw new Error('No recipe DB found (tried complete recipes filenames)');
 
         // Normalize various recipe group shapes into expected `recipes` map
         const normalize = (data) => {
@@ -266,8 +263,25 @@ const SatisfactoryPlanner = () => {
             });
           });
 
-          // If data already has a `recipes` map in expected shape, merge it
-          if (data.recipes && typeof data.recipes === 'object') {
+          // If data already has a `recipes` array (complete DB export), normalize it
+          if (Array.isArray(data.recipes)) {
+            data.recipes.forEach(r => {
+              if (!r || !r.output) return;
+              const time = r.time || 1;
+              const outputItem = r.output?.item || r.name;
+              const outputAmount = r.output?.amount || 1;
+              const outputRate = (outputAmount * 60) / time;
+              const inputs = (r.inputs || []).map(inp => ({ item: inp.item, rate: (inp.amount * 60) / time }));
+              const byp = r.byproduct ? { item: r.byproduct.item, rate: (r.byproduct.amount * 60) / time } : undefined;
+              out.recipes[outputItem] = {
+                building: r.building || null,
+                inputs,
+                output: { item: outputItem, rate: outputRate },
+                power: r.power || r.powerUsage || 0,
+                byproduct: byp
+              };
+            });
+          } else if (data.recipes && typeof data.recipes === 'object') {
             Object.entries(data.recipes).forEach(([k, v]) => {
               // skip comments
               if (k.startsWith('_')) return;

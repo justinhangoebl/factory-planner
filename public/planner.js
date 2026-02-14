@@ -1,18 +1,20 @@
 // Manual Planner
 (async function(){
-  const recipesUrlCandidates = ['satisfactory-recipes-complete.json','recipes.json'];
+  // Load the main recipe database. Use the full complete DB only.
   let data = null;
-  for (const u of recipesUrlCandidates) {
-    try {
-      const r = await fetch(u);
-      if (!r.ok) continue;
-      data = await r.json();
-      break;
-    } catch(e) { continue; }
-  }
-  if (!data) {
-    document.getElementById('recipes-list').innerText = 'No recipe DB found.';
-    return;
+    // Load the main recipe database. Try underscore filename first (uploaded file), then hyphen variant.
+    const candidates = ['satisfactory_complete_recipes.json','satisfactory-recipes-complete.json'];
+    for (const u of candidates) {
+      try {
+        const r = await fetch(u);
+        if (!r.ok) continue;
+        data = await r.json();
+        break;
+      } catch (e) { continue; }
+    }
+    if (!data) {
+      document.getElementById('recipes-list').innerText = 'No recipe DB found (tried complete recipes filenames).';
+      return;
   }
 
   // Normalize simple map of recipes from groups
@@ -33,12 +35,38 @@
   });
   // also include any pre-existing data.recipes that match structure
   if (data.recipes) {
-    Object.entries(data.recipes).forEach(([k,v])=>{
-      if (v && v.output && typeof v.output.rate==='number') {
-        recipesMap[k] = recipesMap[k] || [];
-        recipesMap[k].push({name:k, building:v.building||'', inputs:(v.inputs||[]).map(i=>({item:i.item, rate:i.rate})), output:v.output, power:v.power||0, byproduct:v.byproduct?{item:v.byproduct.item,rate:v.byproduct.rate}:null});
-      }
-    });
+    // If recipes is an object map (legacy), use keys
+    if (!Array.isArray(data.recipes)) {
+      Object.entries(data.recipes).forEach(([k,v])=>{
+        if (v && v.output && typeof v.output.rate==='number') {
+          recipesMap[k] = recipesMap[k] || [];
+          recipesMap[k].push({name:k, building:v.building||'', inputs:(v.inputs||[]).map(i=>({item:i.item, rate:i.rate})), output:v.output, power:v.power||0, byproduct:v.byproduct?{item:v.byproduct.item,rate:v.byproduct.rate}:null});
+        }
+      });
+    } else {
+      // data.recipes is an array (complete DB export) - normalize entries
+      data.recipes.forEach(r => {
+        if (!r || !r.output) return;
+        const time = r.time || 1;
+        const outputItem = r.output?.item || r.name;
+        const outputAmount = r.output?.amount || 1;
+        const outputRate = (outputAmount * 60) / time;
+        const inputs = (r.inputs||[]).map(inp=>({item: inp.item, rate: (inp.amount*60)/time}));
+        const byproduct = r.byproduct ? { item: r.byproduct.item, rate: (r.byproduct.amount*60)/time } : null;
+        recipesMap[outputItem] = recipesMap[outputItem] || [];
+        recipesMap[outputItem].push({ name: r.name || outputItem, building: r.building || '', inputs, output: { item: outputItem, rate: outputRate }, power: r.power || r.powerUsage || 0, byproduct });
+      });
+    }
+  }
+
+  // Diagnostic: if we built no recipes, show helpful info to user
+  if (Object.keys(recipesMap).length === 0) {
+    const listEl = document.getElementById('recipes-list');
+    if (listEl) {
+      listEl.innerText = 'No recipes found in the loaded JSON. Top-level keys: ' + Object.keys(data).join(', ');
+    }
+    console.error('Loaded recipe DB but no recipes parsed. Data keys:', Object.keys(data));
+    return;
   }
 
   // Extractor mapping
@@ -201,11 +229,11 @@
       controls.innerHTML = '';
       const countInput = document.createElement('input');
       countInput.type = 'number'; countInput.value = n.count; countInput.min = 0;
-      countInput.style.cssText = 'width:5rem; padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,193,7,0.15); color:inherit;';
+      countInput.style.cssText = 'width:5rem; padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.05); border:1px solid var(--yellow-15); color:inherit;';
       countInput.addEventListener('change', ()=>{ n.count = Number(countInput.value)||0; recompute(); });
 
       const variantSelect = document.createElement('select');
-      variantSelect.style.cssText = 'padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,193,7,0.12); color:inherit;';
+      variantSelect.style.cssText = 'padding:0.5rem; border-radius:4px; background:rgba(255,255,255,0.03); border:1px solid var(--yellow-12); color:inherit;';
       n.variants.forEach((v,idx)=>{
         const opt = document.createElement('option'); opt.value = idx;
         // include building/name and rate in dropdown
@@ -393,7 +421,7 @@
     renderList(filterEl.value);
 
     // update right-column totals (icon + number; energy uses MW)
-    if (totalEnergyEl) totalEnergyEl.innerHTML = SVG.Zap(16,'#ffc107') + '<span style="margin-left:8px; font-weight:700;">' + Number(totalEnergy.toFixed(2)) + ' MW</span>';
+    if (totalEnergyEl) totalEnergyEl.innerHTML = SVG.Zap(16,'var(--yellow)') + '<span style="margin-left:8px; font-weight:700;">' + Number(totalEnergy.toFixed(2)) + ' MW</span>';
     if (buildingsCountEl) buildingsCountEl.innerHTML = Number(totalBuildingCount.toFixed(0)) + ' Buildings needed';
     if (buildingsListEl) {
       buildingsListEl.innerHTML = '';

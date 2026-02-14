@@ -13,6 +13,23 @@ body {
   min-height: 100vh;
 }
 
+:root {
+  /* Yellow / accent variables - change these to restyle yellow shades across the app */
+  --yellow: #ffc107;
+  --yellow-strong: #ff9800;
+  --yellow-10: rgba(255, 193, 7, 0.1);
+  --yellow-06: rgba(255, 193, 7, 0.06);
+  --yellow-05: rgba(255, 193, 7, 0.05);
+  --yellow-03: rgba(255, 193, 7, 0.03);
+  --yellow-02: rgba(255, 193, 7, 0.02);
+  --yellow-12: rgba(255, 193, 7, 0.12);
+  --yellow-15: rgba(255, 193, 7, 0.15);
+  --yellow-20: rgba(255, 193, 7, 0.2);
+  --yellow-30: rgba(255, 193, 7, 0.3);
+  --orange-05: rgba(255, 152, 0, 0.05);
+  --orange-04: rgba(255, 152, 0, 0.04);
+}
+
 /* Container */
 .app-container {
   padding: 2rem;
@@ -23,7 +40,7 @@ body {
 /* Header */
 .header {
   margin-bottom: 2rem;
-  border-bottom: 2px solid #ffc107;
+  border-bottom: 2px solid var(--yellow);
   padding-bottom: 1.5rem;
 }
 
@@ -46,7 +63,11 @@ body {
   font-weight: 700;
 }
 .header-nav a.active {
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  background: linear-gradient(
+    135deg,
+    var(--yellow) 0%,
+    var(--yellow-strong) 100%
+  );
   color: #0a0e17;
 }
 
@@ -55,7 +76,11 @@ body {
   font-size: 2rem;
   font-weight: 900;
   margin: 0;
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  background: linear-gradient(
+    135deg,
+    var(--yellow) 0%,
+    var(--yellow-strong) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,7 +105,7 @@ body {
 .control-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #ffc107;
+  color: var(--yellow);
   font-size: 0.85rem;
   letter-spacing: 1px;
   font-weight: 700;
@@ -94,7 +119,7 @@ body {
   border-radius: 4px;
   font-family: inherit;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 193, 7, 0.3);
+  border: 1px solid var(--yellow-30);
   color: #e0e6ed;
   transition: all 0.3s ease;
 }
@@ -102,8 +127,8 @@ body {
 .controls select:focus,
 .controls input:focus {
   outline: none;
-  border-color: #ffc107;
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  border-color: var(--yellow);
+  box-shadow: 0 0 20px var(--yellow-30);
 }
 
 .export-btn {
@@ -119,7 +144,11 @@ body {
   gap: 0.5rem;
   font-family: inherit;
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+  background: linear-gradient(
+    135deg,
+    var(--yellow) 0%,
+    var(--yellow-strong) 100%
+  );
   transition: all 0.3s ease;
   height: 3rem;
   width: 100%;
@@ -142,10 +171,10 @@ body {
 .stat-card.power {
   background: linear-gradient(
     135deg,
-    rgba(255, 193, 7, 0.1) 0%,
-    rgba(255, 152, 0, 0.05) 100%
+    var(--yellow-10) 0%,
+    var(--orange-05) 100%
   );
-  border: 1px solid rgba(255, 193, 7, 0.3);
+  border: 1px solid var(--yellow-30);
 }
 
 .stat-card.buildings {
@@ -174,7 +203,7 @@ body {
 }
 
 .stat-value.power {
-  color: #ffc107;
+  color: var(--yellow);
 }
 .stat-value.buildings {
   color: #2196f3;
@@ -189,12 +218,12 @@ body {
   background: rgba(255, 255, 255, 0.02);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  border: 1px solid var(--yellow-20);
 }
 
 .section-title {
   margin: 0 0 1rem 0;
-  color: #ffc107;
+  color: var(--yellow);
   font-size: 1rem;
   letter-spacing: 2px;
   font-weight: 700;
@@ -214,8 +243,8 @@ body {
 }
 
 .building-item.building {
-  background: rgba(255, 193, 7, 0.05);
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  background: var(--yellow-05);
+  border: 1px solid var(--yellow-20);
 }
 
 .building-item.extractor {
@@ -237,7 +266,7 @@ body {
 }
 
 .building-count.building {
-  color: #ffc107;
+  color: var(--yellow);
 }
 .building-count.extractor {
   color: #2196f3;
@@ -248,7 +277,7 @@ body {
   background: rgba(255, 255, 255, 0.02);
   padding: 2rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  border: 1px solid var(--yellow-20);
   overflow-x: auto;
 }
 
@@ -257,7 +286,7 @@ body {
   background: rgba(255, 255, 255, 0.02);
   padding: 1rem 1.25rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 193, 7, 0.12);
+  border: 1px solid var(--yellow-12);
   overflow-x: auto;
 }
 
@@ -276,7 +305,7 @@ body {
 }
 
 .matrix-table thead tr {
-  border-bottom: 1px solid rgba(255, 193, 7, 0.12);
+  border-bottom: 1px solid var(--yellow-12);
 }
 
 table {
@@ -287,13 +316,13 @@ table {
 }
 
 thead tr {
-  border-bottom: 2px solid rgba(255, 193, 7, 0.3);
+  border-bottom: 2px solid var(--yellow-30);
 }
 
 th {
   padding: 0.75rem;
   text-align: left;
-  color: #ffc107;
+  color: var(--yellow);
   font-weight: 700;
 }
 
@@ -311,7 +340,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background: rgba(255, 193, 7, 0.1) !important;
+  background: var(--yellow-10) !important;
 }
 
 td {
@@ -328,10 +357,10 @@ td.count {
   color: #2196f3;
 }
 td.power {
-  color: #ffc107;
+  color: var(--yellow);
 }
 td.surplus {
-  color: #ff9800;
+  color: var(--yellow-strong);
 }
 
 /* Animations */
@@ -381,7 +410,7 @@ td.surplus {
   width: 320px;
   max-height: 80vh;
   overflow: auto;
-  border: 1px solid rgba(255, 193, 7, 0.12);
+  border: 1px solid var(--yellow-12);
   padding: 1rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.02);
@@ -391,10 +420,10 @@ td.surplus {
   width: 320px;
   max-height: 80vh;
   overflow: auto;
-  border: 1px solid rgba(255, 193, 7, 0.12);
+  border: 1px solid var(--yellow-12);
   padding: 1rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
 }
 .right-controls {
   display: flex;
@@ -427,10 +456,10 @@ td.surplus {
 }
 /* missing items marker: orange bar on the left and slightly brighter background */
 .recipe-item.missing {
-  border-left: 6px solid #ff9800;
+  border-left: 6px solid var(--yellow-strong);
   background: linear-gradient(
     90deg,
-    rgba(255, 152, 0, 0.04) 0%,
+    var(--orange-04) 0%,
     rgba(255, 255, 255, 0.01) 100%
   );
 }
@@ -438,7 +467,7 @@ td.surplus {
   cursor: grabbing;
 }
 .recipe-item strong {
-  color: #ffc107;
+  color: var(--yellow);
 }
 .recipe-item .small {
   color: #8b95a5;
@@ -454,7 +483,7 @@ td.surplus {
   background: rgb(255, 255, 255, 0.05);
 }
 .workspace.dragover {
-  box-shadow: 0 0 30px rgba(255, 193, 7, 0.06);
+  box-shadow: 0 0 30px var(--yellow-06);
 }
 
 .node-card {
@@ -501,4 +530,43 @@ button {
 }
 .planner-app td {
   padding: 0.25rem 0.5rem;
+}
+
+/* Custom scrollbar styling (Chromium/WebKit + Firefox) to match app theme */
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--yellow) 0%,
+    var(--yellow-strong) 100%
+  );
+  border-radius: 8px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.95);
+}
+::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Firefox */
+html,
+body,
+.planner-sidebar,
+.planner-right,
+.workspace,
+.table-container,
+.matrix-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--yellow) rgba(255, 255, 255, 0.02);
 }
