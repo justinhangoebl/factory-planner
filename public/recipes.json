@@ -1,0 +1,406 @@
+{
+  "recipes": {
+    "Iron Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Iron Ore", "rate": 30 }
+      ],
+      "output": { "item": "Iron Ingot", "rate": 30 },
+      "power": 4,
+      "cycleTime": 2
+    },
+    "Copper Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Copper Ore", "rate": 30 }
+      ],
+      "output": { "item": "Copper Ingot", "rate": 30 },
+      "power": 4,
+      "cycleTime": 2
+    },
+    "Caterium Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Caterium Ore", "rate": 45 }
+      ],
+      "output": { "item": "Caterium Ingot", "rate": 15 },
+      "power": 4,
+      "cycleTime": 4
+    },
+    "Steel Ingot": {
+      "building": "Foundry",
+      "inputs": [
+        { "item": "Iron Ore", "rate": 45 },
+        { "item": "Coal", "rate": 45 }
+      ],
+      "output": { "item": "Steel Ingot", "rate": 45 },
+      "power": 16,
+      "cycleTime": 4
+    },
+    "Aluminum Ingot": {
+      "building": "Foundry",
+      "inputs": [
+        { "item": "Aluminum Scrap", "rate": 90 },
+        { "item": "Silica", "rate": 75 }
+      ],
+      "output": { "item": "Aluminum Ingot", "rate": 60 },
+      "power": 16,
+      "cycleTime": 4
+    },
+    "Iron Plate": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Iron Ingot", "rate": 30 }
+      ],
+      "output": { "item": "Iron Plate", "rate": 20 },
+      "power": 4,
+      "cycleTime": 6
+    },
+    "Iron Rod": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Iron Ingot", "rate": 15 }
+      ],
+      "output": { "item": "Iron Rod", "rate": 15 },
+      "power": 4,
+      "cycleTime": 4
+    },
+    "Wire": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Copper Ingot", "rate": 15 }
+      ],
+      "output": { "item": "Wire", "rate": 30 },
+      "power": 4,
+      "cycleTime": 4
+    },
+    "Cable": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Wire", "rate": 60 }
+      ],
+      "output": { "item": "Cable", "rate": 30 },
+      "power": 4,
+      "cycleTime": 2
+    },
+    "Concrete": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Limestone", "rate": 45 }
+      ],
+      "output": { "item": "Concrete", "rate": 15 },
+      "power": 4,
+      "cycleTime": 4
+    },
+    "Screw": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Iron Rod", "rate": 10 }
+      ],
+      "output": { "item": "Screw", "rate": 40 },
+      "power": 4,
+      "cycleTime": 6
+    },
+    "Copper Sheet": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Copper Ingot", "rate": 20 }
+      ],
+      "output": { "item": "Copper Sheet", "rate": 10 },
+      "power": 4,
+      "cycleTime": 6
+    },
+    "Steel Beam": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Steel Ingot", "rate": 60 }
+      ],
+      "output": { "item": "Steel Beam", "rate": 15 },
+      "power": 4,
+      "cycleTime": 4
+    },
+    "Steel Pipe": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Steel Ingot", "rate": 30 }
+      ],
+      "output": { "item": "Steel Pipe", "rate": 20 },
+      "power": 4,
+      "cycleTime": 6
+    },
+    "Reinforced Iron Plate": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Plate", "rate": 30 },
+        { "item": "Screw", "rate": 60 }
+      ],
+      "output": { "item": "Reinforced Iron Plate", "rate": 5 },
+      "power": 15,
+      "cycleTime": 12
+    },
+    "Rotor": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Rod", "rate": 20 },
+        { "item": "Screw", "rate": 100 }
+      ],
+      "output": { "item": "Rotor", "rate": 4 },
+      "power": 15,
+      "cycleTime": 15
+    },
+    "Modular Frame": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "rate": 3 },
+        { "item": "Iron Rod", "rate": 12 }
+      ],
+      "output": { "item": "Modular Frame", "rate": 2 },
+      "power": 15,
+      "cycleTime": 60
+    },
+    "Smart Plating": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "rate": 1 },
+        { "item": "Rotor", "rate": 1 }
+      ],
+      "output": { "item": "Smart Plating", "rate": 1 },
+      "power": 15,
+      "cycleTime": 30
+    },
+    "Motor": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Rotor", "rate": 10 },
+        { "item": "Stator", "rate": 10 }
+      ],
+      "output": { "item": "Motor", "rate": 5 },
+      "power": 15,
+      "cycleTime": 12
+    },
+    "Stator": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Steel Pipe", "rate": 15 },
+        { "item": "Wire", "rate": 40 }
+      ],
+      "output": { "item": "Stator", "rate": 5 },
+      "power": 15,
+      "cycleTime": 12
+    },
+    "Encased Industrial Beam": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Steel Beam", "rate": 24 },
+        { "item": "Concrete", "rate": 30 }
+      ],
+      "output": { "item": "Encased Industrial Beam", "rate": 6 },
+      "power": 15,
+      "cycleTime": 10
+    },
+    "Heavy Modular Frame": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Modular Frame", "rate": 10 },
+        { "item": "Steel Pipe", "rate": 30 },
+        { "item": "Encased Industrial Beam", "rate": 10 },
+        { "item": "Screw", "rate": 200 }
+      ],
+      "output": { "item": "Heavy Modular Frame", "rate": 2 },
+      "power": 55,
+      "cycleTime": 30
+    },
+    "Circuit Board": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Copper Sheet", "rate": 15 },
+        { "item": "Plastic", "rate": 30 }
+      ],
+      "output": { "item": "Circuit Board", "rate": 7.5 },
+      "power": 15,
+      "cycleTime": 8
+    },
+    "AI Limiter": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Copper Sheet", "rate": 25 },
+        { "item": "Quickwire", "rate": 100 }
+      ],
+      "output": { "item": "AI Limiter", "rate": 5 },
+      "power": 15,
+      "cycleTime": 12
+    },
+    "High-Speed Connector": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Quickwire", "rate": 210 },
+        { "item": "Cable", "rate": 37.5 },
+        { "item": "Circuit Board", "rate": 3.75 }
+      ],
+      "output": { "item": "High-Speed Connector", "rate": 3.75 },
+      "power": 55,
+      "cycleTime": 16
+    },
+    "Computer": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Circuit Board", "rate": 25 },
+        { "item": "Cable", "rate": 22.5 },
+        { "item": "Plastic", "rate": 45 },
+        { "item": "Screw", "rate": 130 }
+      ],
+      "output": { "item": "Computer", "rate": 2.5 },
+      "power": 55,
+      "cycleTime": 24
+    },
+    "Supercomputer": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Computer", "rate": 7.5 },
+        { "item": "AI Limiter", "rate": 7.5 },
+        { "item": "High-Speed Connector", "rate": 15 },
+        { "item": "Plastic", "rate": 52.5 }
+      ],
+      "output": { "item": "Supercomputer", "rate": 1.875 },
+      "power": 55,
+      "cycleTime": 32
+    },
+    "Plastic": {
+      "building": "Refinery",
+      "inputs": [
+        { "item": "Crude Oil", "rate": 30 }
+      ],
+      "output": { "item": "Plastic", "rate": 20 },
+      "byproduct": { "item": "Heavy Oil Residue", "rate": 10 },
+      "power": 30,
+      "cycleTime": 6
+    },
+    "Rubber": {
+      "building": "Refinery",
+      "inputs": [
+        { "item": "Crude Oil", "rate": 30 }
+      ],
+      "output": { "item": "Rubber", "rate": 20 },
+      "byproduct": { "item": "Heavy Oil Residue", "rate": 20 },
+      "power": 30,
+      "cycleTime": 6
+    },
+    "Quickwire": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Caterium Ingot", "rate": 12 }
+      ],
+      "output": { "item": "Quickwire", "rate": 60 },
+      "power": 4,
+      "cycleTime": 5
+    },
+    "Silica": {
+      "building": "Constructor",
+      "inputs": [
+        { "item": "Raw Quartz", "rate": 22.5 }
+      ],
+      "output": { "item": "Silica", "rate": 37.5 },
+      "power": 4,
+      "cycleTime": 8
+    },
+    "Battery": {
+      "building": "Blender",
+      "inputs": [
+        { "item": "Sulfuric Acid", "rate": 50 },
+        { "item": "Alumina Solution", "rate": 40 },
+        { "item": "Aluminum Casing", "rate": 20 }
+      ],
+      "output": { "item": "Battery", "rate": 20 },
+      "byproduct": { "item": "Water", "rate": 30 },
+      "power": 75,
+      "cycleTime": 3
+    },
+    "Radio Control Unit": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Aluminum Casing", "rate": 40 },
+        { "item": "Crystal Oscillator", "rate": 1.25 },
+        { "item": "Computer", "rate": 1.25 }
+      ],
+      "output": { "item": "Radio Control Unit", "rate": 2.5 },
+      "power": 55,
+      "cycleTime": 48
+    }
+  },
+  "rawResources": [
+    "Iron Ore",
+    "Copper Ore",
+    "Limestone",
+    "Coal",
+    "Caterium Ore",
+    "Raw Quartz",
+    "Sulfur",
+    "Bauxite",
+    "Crude Oil",
+    "Nitrogen Gas",
+    "Water",
+    "Sulfuric Acid",
+    "Alumina Solution",
+    "Aluminum Scrap",
+    "Aluminum Casing",
+    "Crystal Oscillator",
+    "Heavy Oil Residue"
+  ],
+  "extractors": {
+    "Iron Ore": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Copper Ore": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Limestone": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Coal": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Caterium Ore": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Raw Quartz": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Sulfur": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Bauxite": {
+      "type": "Miner Mk.1",
+      "power": 5,
+      "rate": 60
+    },
+    "Crude Oil": {
+      "type": "Oil Extractor",
+      "power": 40,
+      "rate": 120
+    },
+    "Nitrogen Gas": {
+      "type": "Resource Well Extractor",
+      "power": 20,
+      "rate": 60
+    },
+    "Water": {
+      "type": "Water Extractor",
+      "power": 20,
+      "rate": 120
+    }
+  }
+}
