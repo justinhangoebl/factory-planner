@@ -1,0 +1,995 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "gameVersion": "Update 8 / 1.0",
+    "description": "Complete Satisfactory recipe database - Standard recipes only",
+    "lastUpdated": "2025-02-14"
+  },
+  
+  "buildings": {
+    "Smelter": { "power": 4, "inputs": 1, "outputs": 1 },
+    "Foundry": { "power": 16, "inputs": 2, "outputs": 1 },
+    "Constructor": { "power": 4, "inputs": 1, "outputs": 1 },
+    "Assembler": { "power": 15, "inputs": 2, "outputs": 1 },
+    "Manufacturer": { "power": 55, "inputs": 4, "outputs": 1 },
+    "Refinery": { "power": 30, "inputs": 2, "outputs": 2 },
+    "Packager": { "power": 10, "inputs": 2, "outputs": 1 },
+    "Blender": { "power": 75, "inputs": 4, "outputs": 2 },
+    "Particle Accelerator": { "power": 1500, "inputs": 3, "outputs": 1 },
+    "Quantum Encoder": { "power": 2000, "inputs": 3, "outputs": 1 },
+    "Converter": { "power": 5, "inputs": 1, "outputs": 1 }
+  },
+  
+  "extractors": {
+    "Miner Mk.1": { "power": 5, "baseRate": 60 },
+    "Miner Mk.2": { "power": 12, "baseRate": 120 },
+    "Miner Mk.3": { "power": 30, "baseRate": 240 },
+    "Oil Extractor": { "power": 40, "baseRate": 120 },
+    "Water Extractor": { "power": 20, "baseRate": 120 },
+    "Resource Well Pressurizer": { "power": 150, "baseRate": 300 },
+    "Resource Well Extractor": { "power": 0, "baseRate": 0 }
+  },
+  
+  "rawResources": [
+    "Iron Ore",
+    "Copper Ore",
+    "Limestone",
+    "Coal",
+    "Caterium Ore",
+    "Raw Quartz",
+    "Sulfur",
+    "Bauxite",
+    "Uranium",
+    "Nitrogen Gas",
+    "Crude Oil",
+    "Water",
+    "S.A.M. Ore"
+  ],
+  
+  "recipes": {
+    "_comment": "Format: time is in seconds, rates are per-minute for consistency"
+  },
+  
+  "smeltingRecipes": {
+    "Iron Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Iron Ore", "amount": 1 }
+      ],
+      "output": { "item": "Iron Ingot", "amount": 1 },
+      "time": 2,
+      "powerUsage": 4
+    },
+    "Copper Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Copper Ore", "amount": 1 }
+      ],
+      "output": { "item": "Copper Ingot", "amount": 1 },
+      "time": 2,
+      "powerUsage": 4
+    },
+    "Caterium Ingot": {
+      "building": "Smelter",
+      "inputs": [
+        { "item": "Caterium Ore", "amount": 3 }
+      ],
+      "output": { "item": "Caterium Ingot", "amount": 1 },
+      "time": 4,
+      "powerUsage": 4
+    }
+  },
+  
+  "foundryRecipes": {
+    "Steel Ingot": {
+      "building": "Foundry",
+      "inputs": [
+        { "item": "Iron Ore", "amount": 3 },
+        { "item": "Coal", "amount": 3 }
+      ],
+      "output": { "item": "Steel Ingot", "amount": 3 },
+      "time": 4,
+      "powerUsage": 16
+    },
+    "Aluminum Ingot": {
+      "building": "Foundry",
+      "inputs": [
+        { "item": "Aluminum Scrap", "amount": 6 },
+        { "item": "Silica", "amount": 5 }
+      ],
+      "output": { "item": "Aluminum Ingot", "amount": 4 },
+      "time": 4,
+      "powerUsage": 16
+    }
+  },
+  
+  "constructorRecipes": {
+    "Iron Plate": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Iron Ingot", "amount": 3 }],
+      "output": { "item": "Iron Plate", "amount": 2 },
+      "time": 6,
+      "powerUsage": 4
+    },
+    "Iron Rod": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Iron Ingot", "amount": 1 }],
+      "output": { "item": "Iron Rod", "amount": 1 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Screw": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Iron Rod", "amount": 1 }],
+      "output": { "item": "Screw", "amount": 4 },
+      "time": 6,
+      "powerUsage": 4
+    },
+    "Wire": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Copper Ingot", "amount": 1 }],
+      "output": { "item": "Wire", "amount": 2 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Cable": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Wire", "amount": 2 }],
+      "output": { "item": "Cable", "amount": 1 },
+      "time": 2,
+      "powerUsage": 4
+    },
+    "Concrete": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Limestone", "amount": 3 }],
+      "output": { "item": "Concrete", "amount": 1 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Copper Sheet": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Copper Ingot", "amount": 2 }],
+      "output": { "item": "Copper Sheet", "amount": 1 },
+      "time": 6,
+      "powerUsage": 4
+    },
+    "Steel Beam": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Steel Ingot", "amount": 4 }],
+      "output": { "item": "Steel Beam", "amount": 1 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Steel Pipe": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Steel Ingot", "amount": 3 }],
+      "output": { "item": "Steel Pipe", "amount": 2 },
+      "time": 6,
+      "powerUsage": 4
+    },
+    "Quickwire": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Caterium Ingot", "amount": 1 }],
+      "output": { "item": "Quickwire", "amount": 5 },
+      "time": 5,
+      "powerUsage": 4
+    },
+    "Silica": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Raw Quartz", "amount": 3 }],
+      "output": { "item": "Silica", "amount": 5 },
+      "time": 8,
+      "powerUsage": 4
+    },
+    "Quartz Crystal": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Raw Quartz", "amount": 5 }],
+      "output": { "item": "Quartz Crystal", "amount": 3 },
+      "time": 8,
+      "powerUsage": 4
+    },
+    "Biomass (Leaves)": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Leaves", "amount": 10 }],
+      "output": { "item": "Biomass", "amount": 5 },
+      "time": 5,
+      "powerUsage": 4
+    },
+    "Biomass (Wood)": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Wood", "amount": 4 }],
+      "output": { "item": "Biomass", "amount": 20 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Solid Biofuel": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Biomass", "amount": 8 }],
+      "output": { "item": "Solid Biofuel", "amount": 4 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Copper Powder": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Copper Ingot", "amount": 30 }],
+      "output": { "item": "Copper Powder", "amount": 5 },
+      "time": 6,
+      "powerUsage": 4
+    },
+    "Iron Rebar": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Iron Rod", "amount": 1 }],
+      "output": { "item": "Iron Rebar", "amount": 1 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Aluminum Casing": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Aluminum Ingot", "amount": 3 }],
+      "output": { "item": "Aluminum Casing", "amount": 2 },
+      "time": 2,
+      "powerUsage": 4
+    },
+    "Empty Canister": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Plastic", "amount": 2 }],
+      "output": { "item": "Empty Canister", "amount": 4 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Empty Fluid Tank": {
+      "building": "Constructor",
+      "inputs": [{ "item": "Aluminum Ingot", "amount": 1 }],
+      "output": { "item": "Empty Fluid Tank", "amount": 1 },
+      "time": 1,
+      "powerUsage": 4
+    }
+  },
+  
+  "assemblerRecipes": {
+    "Reinforced Iron Plate": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 6 },
+        { "item": "Screw", "amount": 12 }
+      ],
+      "output": { "item": "Reinforced Iron Plate", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Rotor": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Rod", "amount": 5 },
+        { "item": "Screw", "amount": 25 }
+      ],
+      "output": { "item": "Rotor", "amount": 1 },
+      "time": 15,
+      "powerUsage": 15
+    },
+    "Modular Frame": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "amount": 3 },
+        { "item": "Iron Rod", "amount": 12 }
+      ],
+      "output": { "item": "Modular Frame", "amount": 2 },
+      "time": 60,
+      "powerUsage": 15
+    },
+    "Smart Plating": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "amount": 1 },
+        { "item": "Rotor", "amount": 1 }
+      ],
+      "output": { "item": "Smart Plating", "amount": 1 },
+      "time": 30,
+      "powerUsage": 15
+    },
+    "Stator": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Steel Pipe", "amount": 3 },
+        { "item": "Wire", "amount": 8 }
+      ],
+      "output": { "item": "Stator", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Motor": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Rotor", "amount": 2 },
+        { "item": "Stator", "amount": 2 }
+      ],
+      "output": { "item": "Motor", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Encased Industrial Beam": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Steel Beam", "amount": 4 },
+        { "item": "Concrete", "amount": 5 }
+      ],
+      "output": { "item": "Encased Industrial Beam", "amount": 1 },
+      "time": 10,
+      "powerUsage": 15
+    },
+    "Circuit Board": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Copper Sheet", "amount": 2 },
+        { "item": "Plastic", "amount": 4 }
+      ],
+      "output": { "item": "Circuit Board", "amount": 1 },
+      "time": 8,
+      "powerUsage": 15
+    },
+    "AI Limiter": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Copper Sheet", "amount": 5 },
+        { "item": "Quickwire", "amount": 20 }
+      ],
+      "output": { "item": "AI Limiter", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Versatile Framework": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Modular Frame", "amount": 1 },
+        { "item": "Steel Beam", "amount": 12 }
+      ],
+      "output": { "item": "Versatile Framework", "amount": 2 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Automated Wiring": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Stator", "amount": 1 },
+        { "item": "Cable", "amount": 20 }
+      ],
+      "output": { "item": "Automated Wiring", "amount": 1 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Black Powder": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Coal", "amount": 1 },
+        { "item": "Sulfur", "amount": 1 }
+      ],
+      "output": { "item": "Black Powder", "amount": 2 },
+      "time": 4,
+      "powerUsage": 15
+    },
+    "Nobelisk": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Black Powder", "amount": 2 },
+        { "item": "Steel Pipe", "amount": 2 }
+      ],
+      "output": { "item": "Nobelisk", "amount": 1 },
+      "time": 6,
+      "powerUsage": 15
+    },
+    "Gas Filter": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Coal", "amount": 5 },
+        { "item": "Rubber", "amount": 2 }
+      ],
+      "output": { "item": "Gas Filter", "amount": 1 },
+      "time": 8,
+      "powerUsage": 15
+    },
+    "Beacon": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 3 },
+        { "item": "Iron Rod", "amount": 1 },
+        { "item": "Wire", "amount": 15 },
+        { "item": "Cable", "amount": 2 }
+      ],
+      "output": { "item": "Beacon", "amount": 1 },
+      "time": 8,
+      "powerUsage": 15
+    },
+    "Portable Miner": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 2 },
+        { "item": "Iron Rod", "amount": 4 }
+      ],
+      "output": { "item": "Portable Miner", "amount": 1 },
+      "time": 40,
+      "powerUsage": 15
+    },
+    "Color Cartridge": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Flower Petals", "amount": 5 },
+        { "item": "Water", "amount": 25 }
+      ],
+      "output": { "item": "Color Cartridge", "amount": 10 },
+      "time": 6,
+      "powerUsage": 15
+    }
+  },
+  
+  "manufacturerRecipes": {
+    "Heavy Modular Frame": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Modular Frame", "amount": 5 },
+        { "item": "Steel Pipe", "amount": 15 },
+        { "item": "Encased Industrial Beam", "amount": 5 },
+        { "item": "Screw", "amount": 100 }
+      ],
+      "output": { "item": "Heavy Modular Frame", "amount": 1 },
+      "time": 30,
+      "powerUsage": 55
+    },
+    "Computer": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Circuit Board", "amount": 10 },
+        { "item": "Cable", "amount": 9 },
+        { "item": "Plastic", "amount": 18 },
+        { "item": "Screw", "amount": 52 }
+      ],
+      "output": { "item": "Computer", "amount": 1 },
+      "time": 24,
+      "powerUsage": 55
+    },
+    "High-Speed Connector": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Quickwire", "amount": 56 },
+        { "item": "Cable", "amount": 10 },
+        { "item": "Circuit Board", "amount": 1 }
+      ],
+      "output": { "item": "High-Speed Connector", "amount": 1 },
+      "time": 16,
+      "powerUsage": 55
+    },
+    "Supercomputer": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Computer", "amount": 2 },
+        { "item": "AI Limiter", "amount": 2 },
+        { "item": "High-Speed Connector", "amount": 3 },
+        { "item": "Plastic", "amount": 28 }
+      ],
+      "output": { "item": "Supercomputer", "amount": 1 },
+      "time": 32,
+      "powerUsage": 55
+    },
+    "Modular Engine": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Motor", "amount": 2 },
+        { "item": "Rubber", "amount": 15 },
+        { "item": "Smart Plating", "amount": 2 }
+      ],
+      "output": { "item": "Modular Engine", "amount": 1 },
+      "time": 60,
+      "powerUsage": 55
+    },
+    "Adaptive Control Unit": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Automated Wiring", "amount": 15 },
+        { "item": "Circuit Board", "amount": 10 },
+        { "item": "Heavy Modular Frame", "amount": 2 },
+        { "item": "Computer", "amount": 2 }
+      ],
+      "output": { "item": "Adaptive Control Unit", "amount": 2 },
+      "time": 120,
+      "powerUsage": 55
+    },
+    "Crystal Oscillator": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Quartz Crystal", "amount": 36 },
+        { "item": "Cable", "amount": 28 },
+        { "item": "Reinforced Iron Plate", "amount": 5 }
+      ],
+      "output": { "item": "Crystal Oscillator", "amount": 2 },
+      "time": 120,
+      "powerUsage": 55
+    },
+    "Radio Control Unit": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Aluminum Casing", "amount": 32 },
+        { "item": "Crystal Oscillator", "amount": 1 },
+        { "item": "Computer", "amount": 1 }
+      ],
+      "output": { "item": "Radio Control Unit", "amount": 2 },
+      "time": 48,
+      "powerUsage": 55
+    },
+    "Turbo Motor": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Cooling System", "amount": 4 },
+        { "item": "Radio Control Unit", "amount": 2 },
+        { "item": "Motor", "amount": 4 },
+        { "item": "Rubber", "amount": 24 }
+      ],
+      "output": { "item": "Turbo Motor", "amount": 1 },
+      "time": 32,
+      "powerUsage": 55
+    },
+    "Heat Sink": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Aluminum Casing", "amount": 5 },
+        { "item": "Rubber", "amount": 3 }
+      ],
+      "output": { "item": "Heat Sink", "amount": 1 },
+      "time": 8,
+      "powerUsage": 55
+    },
+    "Cooling System": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Heat Sink", "amount": 2 },
+        { "item": "Rubber", "amount": 2 },
+        { "item": "Water", "amount": 5 },
+        { "item": "Nitrogen Gas", "amount": 25 }
+      ],
+      "output": { "item": "Cooling System", "amount": 1 },
+      "time": 10,
+      "powerUsage": 55
+    },
+    "Battery": {
+      "building": "Blender",
+      "inputs": [
+        { "item": "Sulfuric Acid", "amount": 2.5 },
+        { "item": "Alumina Solution", "amount": 2 },
+        { "item": "Aluminum Casing", "amount": 1 }
+      ],
+      "output": { "item": "Battery", "amount": 1 },
+      "byproduct": { "item": "Water", "amount": 1.5 },
+      "time": 3,
+      "powerUsage": 75
+    },
+    "Fused Modular Frame": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Heavy Modular Frame", "amount": 1 },
+        { "item": "Aluminum Casing", "amount": 50 },
+        { "item": "Nitrogen Gas", "amount": 25 }
+      ],
+      "output": { "item": "Fused Modular Frame", "amount": 1 },
+      "time": 40,
+      "powerUsage": 55
+    },
+    "Gas Nobelisk": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Nobelisk", "amount": 1 },
+        { "item": "Biomass", "amount": 10 }
+      ],
+      "output": { "item": "Gas Nobelisk", "amount": 1 },
+      "time": 12,
+      "powerUsage": 55
+    },
+    "Cluster Nobelisk": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Nobelisk", "amount": 3 },
+        { "item": "Smokeless Powder", "amount": 4 }
+      ],
+      "output": { "item": "Cluster Nobelisk", "amount": 1 },
+      "time": 24,
+      "powerUsage": 55
+    },
+    "Nuke Nobelisk": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Nobelisk", "amount": 5 },
+        { "item": "Encased Uranium Cell", "amount": 20 },
+        { "item": "Smokeless Powder", "amount": 10 },
+        { "item": "AI Limiter", "amount": 6 }
+      ],
+      "output": { "item": "Nuke Nobelisk", "amount": 1 },
+      "time": 120,
+      "powerUsage": 55
+    }
+  },
+  
+  "refineryRecipes": {
+    "Plastic": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Crude Oil", "amount": 3 }],
+      "output": { "item": "Plastic", "amount": 2 },
+      "byproduct": { "item": "Heavy Oil Residue", "amount": 1 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Rubber": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Crude Oil", "amount": 3 }],
+      "output": { "item": "Rubber", "amount": 2 },
+      "byproduct": { "item": "Heavy Oil Residue", "amount": 2 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Fuel": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Crude Oil", "amount": 6 }],
+      "output": { "item": "Fuel", "amount": 4 },
+      "byproduct": { "item": "Polymer Resin", "amount": 3 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Residual Plastic": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Polymer Resin", "amount": 6 }, { "item": "Water", "amount": 2 }],
+      "output": { "item": "Plastic", "amount": 2 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Residual Rubber": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Polymer Resin", "amount": 4 }, { "item": "Water", "amount": 4 }],
+      "output": { "item": "Rubber", "amount": 2 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Residual Fuel": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Heavy Oil Residue", "amount": 6 }],
+      "output": { "item": "Fuel", "amount": 4 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Alumina Solution": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Bauxite", "amount": 12 }, { "item": "Water", "amount": 18 }],
+      "output": { "item": "Alumina Solution", "amount": 12 },
+      "byproduct": { "item": "Silica", "amount": 5 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Aluminum Scrap": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Alumina Solution", "amount": 4 }, { "item": "Coal", "amount": 2 }],
+      "output": { "item": "Aluminum Scrap", "amount": 6 },
+      "byproduct": { "item": "Water", "amount": 2 },
+      "time": 1,
+      "powerUsage": 30
+    },
+    "Sulfuric Acid": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Sulfur", "amount": 5 }, { "item": "Water", "amount": 5 }],
+      "output": { "item": "Sulfuric Acid", "amount": 5 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Nitric Acid": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Nitrogen Gas", "amount": 12 }, { "item": "Water", "amount": 3 }, { "item": "Iron Plate", "amount": 1 }],
+      "output": { "item": "Nitric Acid", "amount": 3 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Encased Uranium Cell": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Uranium", "amount": 10 }, { "item": "Concrete", "amount": 3 }, { "item": "Sulfuric Acid", "amount": 8 }],
+      "output": { "item": "Encased Uranium Cell", "amount": 5 },
+      "byproduct": { "item": "Sulfuric Acid", "amount": 2 },
+      "time": 12,
+      "powerUsage": 30
+    },
+    "Non-Fissile Uranium": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Uranium Waste", "amount": 15 }, { "item": "Silica", "amount": 10 }, { "item": "Nitric Acid", "amount": 6 }, { "item": "Sulfuric Acid", "amount": 6 }],
+      "output": { "item": "Non-Fissile Uranium", "amount": 20 },
+      "byproduct": { "item": "Water", "amount": 6 },
+      "time": 24,
+      "powerUsage": 30
+    },
+    "Smokeless Powder": {
+      "building": "Refinery",
+      "inputs": [{ "item": "Black Powder", "amount": 2 }, { "item": "Heavy Oil Residue", "amount": 1 }],
+      "output": { "item": "Smokeless Powder", "amount": 2 },
+      "time": 6,
+      "powerUsage": 30
+    }
+  },
+  
+  "blenderRecipes": {
+    "Battery": {
+      "building": "Blender",
+      "inputs": [
+        { "item": "Sulfuric Acid", "amount": 50 },
+        { "item": "Alumina Solution", "amount": 40 },
+        { "item": "Aluminum Casing", "amount": 20 }
+      ],
+      "output": { "item": "Battery", "amount": 20 },
+      "byproduct": { "item": "Water", "amount": 30 },
+      "time": 3,
+      "powerUsage": 75
+    },
+    "Turbo Blend Fuel": {
+      "building": "Blender",
+      "inputs": [
+        { "item": "Fuel", "amount": 2 },
+        { "item": "Heavy Oil Residue", "amount": 4 },
+        { "item": "Sulfur", "amount": 3 },
+        { "item": "Petroleum Coke", "amount": 3 }
+      ],
+      "output": { "item": "Turbofuel", "amount": 6 },
+      "time": 8,
+      "powerUsage": 75
+    },
+    "Cooling Device": {
+      "building": "Blender",
+      "inputs": [
+        { "item": "Heat Sink", "amount": 5 },
+        { "item": "Motor", "amount": 1 },
+        { "item": "Nitrogen Gas", "amount": 24 }
+      ],
+      "output": { "item": "Cooling System", "amount": 2 },
+      "time": 10,
+      "powerUsage": 75
+    }
+  },
+  
+  "particleAcceleratorRecipes": {
+    "Nuclear Pasta": {
+      "building": "Particle Accelerator",
+      "inputs": [
+        { "item": "Copper Powder", "amount": 20 },
+        { "item": "Pressure Conversion Cube", "amount": 1 }
+      ],
+      "output": { "item": "Nuclear Pasta", "amount": 1 },
+      "time": 120,
+      "powerUsage": 1500
+    },
+    "Plutonium Pellet": {
+      "building": "Particle Accelerator",
+      "inputs": [
+        { "item": "Non-Fissile Uranium", "amount": 10 },
+        { "item": "Uranium Waste", "amount": 10 }
+      ],
+      "output": { "item": "Plutonium Pellet", "amount": 30 },
+      "time": 60,
+      "powerUsage": 1500
+    },
+    "Diamonds": {
+      "building": "Particle Accelerator",
+      "inputs": [
+        { "item": "Coal", "amount": 60 }
+      ],
+      "output": { "item": "Diamonds", "amount": 3 },
+      "time": 120,
+      "powerUsage": 1500
+    },
+    "Time Crystal": {
+      "building": "Particle Accelerator",
+      "inputs": [
+        { "item": "Diamonds", "amount": 12 }
+      ],
+      "output": { "item": "Time Crystal", "amount": 6 },
+      "time": 120,
+      "powerUsage": 1500
+    }
+  },
+  
+  "quantumEncoderRecipes": {
+    "Dark Matter Crystal": {
+      "building": "Quantum Encoder",
+      "inputs": [
+        { "item": "Diamonds", "amount": 50 },
+        { "item": "Dark Matter Residue", "amount": 50 }
+      ],
+      "output": { "item": "Dark Matter Crystal", "amount": 10 },
+      "time": 120,
+      "powerUsage": 2000
+    },
+    "Ficsonium": {
+      "building": "Quantum Encoder",
+      "inputs": [
+        { "item": "Plutonium Waste", "amount": 10 },
+        { "item": "Singularity Cell", "amount": 10 },
+        { "item": "Dark Matter Crystal", "amount": 20 }
+      ],
+      "output": { "item": "Ficsonium", "amount": 10 },
+      "time": 120,
+      "powerUsage": 2000
+    },
+    "Ficsonium Fuel Rod": {
+      "building": "Quantum Encoder",
+      "inputs": [
+        { "item": "Ficsonium", "amount": 10 },
+        { "item": "Electromagnetic Control Rod", "amount": 10 },
+        { "item": "Excited Photonic Matter", "amount": 50 }
+      ],
+      "output": { "item": "Ficsonium Fuel Rod", "amount": 10 },
+      "time": 120,
+      "powerUsage": 2000
+    }
+  },
+  
+  "converterRecipes": {
+    "Caterium Ore": {
+      "building": "Converter",
+      "inputs": [{ "item": "Reanimated S.A.M.", "amount": 15 }],
+      "output": { "item": "Caterium Ore", "amount": 15 },
+      "time": 6,
+      "powerUsage": 5
+    },
+    "Raw Quartz": {
+      "building": "Converter",
+      "inputs": [{ "item": "Reanimated S.A.M.", "amount": 15 }],
+      "output": { "item": "Raw Quartz", "amount": 15 },
+      "time": 6,
+      "powerUsage": 5
+    },
+    "Sulfur": {
+      "building": "Converter",
+      "inputs": [{ "item": "Reanimated S.A.M.", "amount": 15 }],
+      "output": { "item": "Sulfur", "amount": 15 },
+      "time": 6,
+      "powerUsage": 5
+    }
+  },
+  
+  "fuelRecipes": {
+    "Uranium Fuel Rod": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Encased Uranium Cell", "amount": 50 },
+        { "item": "Encased Industrial Beam", "amount": 3 },
+        { "item": "Electromagnetic Control Rod", "amount": 5 }
+      ],
+      "output": { "item": "Uranium Fuel Rod", "amount": 1 },
+      "time": 150,
+      "powerUsage": 55
+    },
+    "Plutonium Fuel Rod": {
+      "building": "Manufacturer",
+      "inputs": [
+        { "item": "Encased Plutonium Cell", "amount": 30 },
+        { "item": "Steel Beam", "amount": 18 },
+        { "item": "Electromagnetic Control Rod", "amount": 6 },
+        { "item": "Heat Sink", "amount": 10 }
+      ],
+      "output": { "item": "Plutonium Fuel Rod", "amount": 1 },
+      "time": 240,
+      "powerUsage": 55
+    },
+    "Electromagnetic Control Rod": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Stator", "amount": 3 },
+        { "item": "AI Limiter", "amount": 2 }
+      ],
+      "output": { "item": "Electromagnetic Control Rod", "amount": 2 },
+      "time": 30,
+      "powerUsage": 15
+    },
+    "Encased Plutonium Cell": {
+      "building": "Assembler",
+      "inputs": [
+        { "item": "Plutonium Pellet", "amount": 2 },
+        { "item": "Concrete", "amount": 4 }
+      ],
+      "output": { "item": "Encased Plutonium Cell", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    }
+  },
+  
+  "packagerRecipes": {
+    "Packaged Water": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Water", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Water", "amount": 2 },
+      "time": 2,
+      "powerUsage": 10
+    },
+    "Packaged Fuel": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Fuel", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Fuel", "amount": 2 },
+      "time": 3,
+      "powerUsage": 10
+    },
+    "Packaged Oil": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Crude Oil", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Oil", "amount": 2 },
+      "time": 4,
+      "powerUsage": 10
+    },
+    "Packaged Turbofuel": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Turbofuel", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Turbofuel", "amount": 2 },
+      "time": 6,
+      "powerUsage": 10
+    },
+    "Packaged Heavy Oil Residue": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Heavy Oil Residue", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Heavy Oil Residue", "amount": 2 },
+      "time": 4,
+      "powerUsage": 10
+    },
+    "Packaged Liquid Biofuel": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Liquid Biofuel", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Liquid Biofuel", "amount": 2 },
+      "time": 3,
+      "powerUsage": 10
+    },
+    "Packaged Alumina Solution": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Alumina Solution", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Alumina Solution", "amount": 2 },
+      "time": 1,
+      "powerUsage": 10
+    },
+    "Packaged Sulfuric Acid": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Sulfuric Acid", "amount": 2 },
+        { "item": "Empty Canister", "amount": 2 }
+      ],
+      "output": { "item": "Packaged Sulfuric Acid", "amount": 2 },
+      "time": 3,
+      "powerUsage": 10
+    },
+    "Packaged Nitric Acid": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Nitric Acid", "amount": 1 },
+        { "item": "Empty Fluid Tank", "amount": 1 }
+      ],
+      "output": { "item": "Packaged Nitric Acid", "amount": 1 },
+      "time": 2,
+      "powerUsage": 10
+    },
+    "Packaged Nitrogen Gas": {
+      "building": "Packager",
+      "inputs": [
+        { "item": "Nitrogen Gas", "amount": 4 },
+        { "item": "Empty Fluid Tank", "amount": 1 }
+      ],
+      "output": { "item": "Packaged Nitrogen Gas", "amount": 1 },
+      "time": 1,
+      "powerUsage": 10
+    }
+  }
+}

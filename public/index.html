@@ -1,22 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Satisfactory Production Chain Calculator - Plan your factory with automatic building calculations, power requirements, and resource tracking">
-  <title>Satisfactory Production Planner</title>
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- React -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-</head>
-<body>
-  <div id="root"></div>
+<!doctype html>
+<html>
 
-  <!-- Main Application -->
-  <script src="app.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manual Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* small overrides for planner on index */
+    .planner-app {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="header">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <h1 style="margin:0; font-size:1.25rem; font-weight:900;">MANUAL FACTORY PLANNER</h1>
+      </div>
+      <div class="header-nav">
+        <a href="planner.html">Automatic Planner</a>
+        <a href="index.html" class="active">Manual Planner</a>
+      </div>
+    </div>
+
+    <div class="planner-app">
+      <div class="planner-sidebar">
+        <!-- Templates for planner rendering -->
+        <template id="tpl-recipe-item">
+          <div class="recipe-item" draggable="true">
+            <strong class="ri-name" data-bind="recipe-name"></strong>
+            <div class="small ri-variants" data-bind="recipe-variants"></div>
+          </div>
+        </template>
+        <template id="tpl-node-card">
+          <div class="node-card" style="position:relative; padding:0.75rem;">
+            <div class="node-row node-header" style="margin-bottom: 1rem;">
+              <strong class="nc-name" data-bind="name"></strong>
+              <button class="node-remove" data-bind="remove" aria-label="Remove"
+                style="position:absolute; right:0.5rem; top:0.5rem; background:transparent; border:none; color:#ff6b6b; font-weight:900; font-size:2rem; line-height:1; padding:0 0.25rem; cursor:pointer;">&times;</button>
+            </div>
+            <div class="node-row node-controls controls" data-bind="controls"></div>
+            <details class="io" data-bind="io" style="margin-top:0.5rem;">
+              <summary style="cursor:pointer; color:#8b95a5;">I / O</summary>
+              <table style="width:100%; margin-top:0.5rem; border-collapse:collapse;">
+                <thead>
+                  <tr style="color:#ffc107; text-align:left;">
+                    <th style="padding:0.25rem 0.5rem;">Type</th>
+                    <th style="padding:0.25rem 0.5rem;">Item</th>
+                    <th style="padding:0.25rem 0.5rem;">Rate (/min)</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="io-body"></tbody>
+              </table>
+            </details>
+          </div>
+        </template>
+        <div class="controls">
+          <input id="filter" placeholder="Filter recipes..." style="flex:1;padding:0.5rem;">
+        </div>
+        <div id="recipes-list"></div>
+      </div>
+      <div class="workspace graph-container" id="workspace">
+        <div id="nodes"></div>
+      </div>
+      <div class="planner-right">
+        <div class="right-controls">
+          <button id="export-csv" class="export-btn">Export CSV</button>
+        </div>
+        <div class="stat-card power" style="margin-top:1rem; padding: 0.5rem 1rem 0.66rem 1rem;">
+          <div id="total-energy" class="stat-value power">0</div>
+        </div>
+        <div class="building-requirements" style="margin-top:1rem;">
+          <div id="buildings-count" class="section-title">0 Buildings needed</div>
+          <div id="buildings-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="planner.js"></script>
 </body>
+
 </html>

@@ -1,8 +1,10 @@
 {
-  "name": "factory-planner",
+  "name": "epstein-check",
   "compatibility_date": "2026-02-06",
-  "main": "workers-site/index.js",
-  "site": {
-    "bucket": "./public",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/worker.js",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
   },
 }

@@ -1,0 +1,563 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "gameVersion": "Update 8 / 1.0",
+    "description": "Alternate recipes unlocked via Hard Drives",
+    "lastUpdated": "2025-02-14",
+    "note": "These recipes require scanning Hard Drives at the MAM"
+  },
+  
+  "alternateRecipes": {
+    "Pure Iron Ingot": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Ore", "amount": 7 },
+        { "item": "Water", "amount": 4 }
+      ],
+      "output": { "item": "Iron Ingot", "amount": 13 },
+      "time": 12,
+      "powerUsage": 30
+    },
+    "Pure Copper Ingot": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Ore", "amount": 6 },
+        { "item": "Water", "amount": 4 }
+      ],
+      "output": { "item": "Copper Ingot", "amount": 15 },
+      "time": 24,
+      "powerUsage": 30
+    },
+    "Pure Caterium Ingot": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Caterium Ore", "amount": 2 },
+        { "item": "Water", "amount": 2 }
+      ],
+      "output": { "item": "Caterium Ingot", "amount": 1 },
+      "time": 5,
+      "powerUsage": 30
+    },
+    "Pure Quartz Crystal": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Raw Quartz", "amount": 9 },
+        { "item": "Water", "amount": 5 }
+      ],
+      "output": { "item": "Quartz Crystal", "amount": 7 },
+      "time": 8,
+      "powerUsage": 30
+    },
+    "Iron Alloy Ingot": {
+      "building": "Foundry",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Ore", "amount": 2 },
+        { "item": "Copper Ore", "amount": 2 }
+      ],
+      "output": { "item": "Iron Ingot", "amount": 5 },
+      "time": 6,
+      "powerUsage": 16
+    },
+    "Copper Alloy Ingot": {
+      "building": "Foundry",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Ore", "amount": 10 },
+        { "item": "Iron Ore", "amount": 5 }
+      ],
+      "output": { "item": "Copper Ingot", "amount": 20 },
+      "time": 12,
+      "powerUsage": 16
+    },
+    "Solid Steel Ingot": {
+      "building": "Foundry",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Ingot", "amount": 2 },
+        { "item": "Coal", "amount": 2 }
+      ],
+      "output": { "item": "Steel Ingot", "amount": 3 },
+      "time": 3,
+      "powerUsage": 16
+    },
+    "Compacted Steel Ingot": {
+      "building": "Foundry",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Ore", "amount": 6 },
+        { "item": "Compacted Coal", "amount": 3 }
+      ],
+      "output": { "item": "Steel Ingot", "amount": 10 },
+      "time": 16,
+      "powerUsage": 16
+    },
+    "Stitched Iron Plate": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 10 },
+        { "item": "Wire", "amount": 20 }
+      ],
+      "output": { "item": "Reinforced Iron Plate", "amount": 3 },
+      "time": 32,
+      "powerUsage": 15
+    },
+    "Bolted Iron Plate": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 18 },
+        { "item": "Screw", "amount": 50 }
+      ],
+      "output": { "item": "Reinforced Iron Plate", "amount": 3 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Cast Screw": {
+      "building": "Constructor",
+      "category": "Alternate",
+      "inputs": [{ "item": "Iron Ingot", "amount": 5 }],
+      "output": { "item": "Screw", "amount": 20 },
+      "time": 24,
+      "powerUsage": 4
+    },
+    "Steel Screw": {
+      "building": "Constructor",
+      "category": "Alternate",
+      "inputs": [{ "item": "Steel Beam", "amount": 1 }],
+      "output": { "item": "Screw", "amount": 52 },
+      "time": 12,
+      "powerUsage": 4
+    },
+    "Iron Wire": {
+      "building": "Constructor",
+      "category": "Alternate",
+      "inputs": [{ "item": "Iron Ingot", "amount": 5 }],
+      "output": { "item": "Wire", "amount": 9 },
+      "time": 24,
+      "powerUsage": 4
+    },
+    "Fused Wire": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Ingot", "amount": 4 },
+        { "item": "Caterium Ingot", "amount": 1 }
+      ],
+      "output": { "item": "Wire", "amount": 30 },
+      "time": 20,
+      "powerUsage": 15
+    },
+    "Coated Cable": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Wire", "amount": 5 },
+        { "item": "Heavy Oil Residue", "amount": 2 }
+      ],
+      "output": { "item": "Cable", "amount": 9 },
+      "time": 8,
+      "powerUsage": 30
+    },
+    "Insulated Cable": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Wire", "amount": 9 },
+        { "item": "Rubber", "amount": 6 }
+      ],
+      "output": { "item": "Cable", "amount": 20 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Quickwire Cable": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Quickwire", "amount": 3 },
+        { "item": "Rubber", "amount": 2 }
+      ],
+      "output": { "item": "Cable", "amount": 11 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Wet Concrete": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Limestone", "amount": 6 },
+        { "item": "Water", "amount": 5 }
+      ],
+      "output": { "item": "Concrete", "amount": 4 },
+      "time": 3,
+      "powerUsage": 30
+    },
+    "Fine Concrete": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Silica", "amount": 3 },
+        { "item": "Limestone", "amount": 12 }
+      ],
+      "output": { "item": "Concrete", "amount": 10 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Steamed Copper Sheet": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Ingot", "amount": 3 },
+        { "item": "Water", "amount": 3 }
+      ],
+      "output": { "item": "Copper Sheet", "amount": 3 },
+      "time": 8,
+      "powerUsage": 30
+    },
+    "Caterium Wire": {
+      "building": "Constructor",
+      "category": "Alternate",
+      "inputs": [{ "item": "Caterium Ingot", "amount": 1 }],
+      "output": { "item": "Quickwire", "amount": 8 },
+      "time": 4,
+      "powerUsage": 4
+    },
+    "Fused Quickwire": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Caterium Ingot", "amount": 1 },
+        { "item": "Copper Ingot", "amount": 5 }
+      ],
+      "output": { "item": "Quickwire", "amount": 12 },
+      "time": 8,
+      "powerUsage": 15
+    },
+    "Adhered Iron Plate": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Iron Plate", "amount": 3 },
+        { "item": "Rubber", "amount": 1 }
+      ],
+      "output": { "item": "Reinforced Iron Plate", "amount": 1 },
+      "time": 16,
+      "powerUsage": 15
+    },
+    "Copper Rotor": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Sheet", "amount": 6 },
+        { "item": "Screw", "amount": 52 }
+      ],
+      "output": { "item": "Rotor", "amount": 3 },
+      "time": 16,
+      "powerUsage": 15
+    },
+    "Steel Rotor": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Steel Pipe", "amount": 2 },
+        { "item": "Wire", "amount": 6 }
+      ],
+      "output": { "item": "Rotor", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Bolted Frame": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "amount": 3 },
+        { "item": "Screw", "amount": 56 }
+      ],
+      "output": { "item": "Modular Frame", "amount": 2 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Steeled Frame": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Reinforced Iron Plate", "amount": 2 },
+        { "item": "Steel Pipe", "amount": 10 }
+      ],
+      "output": { "item": "Modular Frame", "amount": 3 },
+      "time": 60,
+      "powerUsage": 15
+    },
+    "Cheap Silica": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Raw Quartz", "amount": 3 },
+        { "item": "Limestone", "amount": 5 }
+      ],
+      "output": { "item": "Silica", "amount": 7 },
+      "time": 16,
+      "powerUsage": 15
+    },
+    "Quickwire Stator": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Steel Pipe", "amount": 4 },
+        { "item": "Quickwire", "amount": 15 }
+      ],
+      "output": { "item": "Stator", "amount": 2 },
+      "time": 15,
+      "powerUsage": 15
+    },
+    "Rigor Motor": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Rotor", "amount": 3 },
+        { "item": "Stator", "amount": 3 },
+        { "item": "Crystal Oscillator", "amount": 1 }
+      ],
+      "output": { "item": "Motor", "amount": 6 },
+      "time": 48,
+      "powerUsage": 55
+    },
+    "Electric Motor": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Electromagnetic Control Rod", "amount": 1 },
+        { "item": "Rotor", "amount": 2 }
+      ],
+      "output": { "item": "Motor", "amount": 2 },
+      "time": 16,
+      "powerUsage": 15
+    },
+    "Encased Industrial Pipe": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Steel Pipe", "amount": 7 },
+        { "item": "Concrete", "amount": 5 }
+      ],
+      "output": { "item": "Encased Industrial Beam", "amount": 1 },
+      "time": 15,
+      "powerUsage": 15
+    },
+    "Heavy Encased Frame": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Modular Frame", "amount": 8 },
+        { "item": "Encased Industrial Beam", "amount": 10 },
+        { "item": "Steel Pipe", "amount": 36 },
+        { "item": "Concrete", "amount": 22 }
+      ],
+      "output": { "item": "Heavy Modular Frame", "amount": 3 },
+      "time": 64,
+      "powerUsage": 55
+    },
+    "Heavy Flexible Frame": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Modular Frame", "amount": 5 },
+        { "item": "Encased Industrial Beam", "amount": 3 },
+        { "item": "Rubber", "amount": 20 },
+        { "item": "Screw", "amount": 104 }
+      ],
+      "output": { "item": "Heavy Modular Frame", "amount": 1 },
+      "time": 16,
+      "powerUsage": 55
+    },
+    "Caterium Circuit Board": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Plastic", "amount": 10 },
+        { "item": "Quickwire", "amount": 30 }
+      ],
+      "output": { "item": "Circuit Board", "amount": 7 },
+      "time": 48,
+      "powerUsage": 15
+    },
+    "Silicon Circuit Board": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Copper Sheet", "amount": 11 },
+        { "item": "Silica", "amount": 11 }
+      ],
+      "output": { "item": "Circuit Board", "amount": 5 },
+      "time": 24,
+      "powerUsage": 15
+    },
+    "Electrode Circuit Board": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Rubber", "amount": 6 },
+        { "item": "Petroleum Coke", "amount": 9 }
+      ],
+      "output": { "item": "Circuit Board", "amount": 1 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Caterium Computer": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Circuit Board", "amount": 7 },
+        { "item": "Quickwire", "amount": 28 },
+        { "item": "Rubber", "amount": 12 }
+      ],
+      "output": { "item": "Computer", "amount": 1 },
+      "time": 16,
+      "powerUsage": 55
+    },
+    "Crystal Computer": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Circuit Board", "amount": 8 },
+        { "item": "Crystal Oscillator", "amount": 3 }
+      ],
+      "output": { "item": "Computer", "amount": 3 },
+      "time": 64,
+      "powerUsage": 15
+    },
+    "Silicon High-Speed Connector": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Quickwire", "amount": 60 },
+        { "item": "Silica", "amount": 25 },
+        { "item": "Circuit Board", "amount": 2 }
+      ],
+      "output": { "item": "High-Speed Connector", "amount": 2 },
+      "time": 40,
+      "powerUsage": 55
+    },
+    "OC Supercomputer": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Radio Control Unit", "amount": 3 },
+        { "item": "Cooling System", "amount": 3 }
+      ],
+      "output": { "item": "Supercomputer", "amount": 1 },
+      "time": 20,
+      "powerUsage": 15
+    },
+    "Super-State Computer": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Computer", "amount": 3 },
+        { "item": "Electromagnetic Control Rod", "amount": 2 },
+        { "item": "Battery", "amount": 20 },
+        { "item": "Wire", "amount": 45 }
+      ],
+      "output": { "item": "Supercomputer", "amount": 2 },
+      "time": 50,
+      "powerUsage": 55
+    },
+    "Compacted Coal": {
+      "building": "Assembler",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Coal", "amount": 5 },
+        { "item": "Sulfur", "amount": 5 }
+      ],
+      "output": { "item": "Compacted Coal", "amount": 5 },
+      "time": 12,
+      "powerUsage": 15
+    },
+    "Turbo Pressure Motor": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Motor", "amount": 4 },
+        { "item": "Pressure Conversion Cube", "amount": 1 },
+        { "item": "Packaged Nitrogen Gas", "amount": 24 },
+        { "item": "Stator", "amount": 8 }
+      ],
+      "output": { "item": "Turbo Motor", "amount": 2 },
+      "time": 32,
+      "powerUsage": 55
+    },
+    "Turbo Electric Motor": {
+      "building": "Manufacturer",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Motor", "amount": 7 },
+        { "item": "Radio Control Unit", "amount": 9 },
+        { "item": "Electromagnetic Control Rod", "amount": 5 },
+        { "item": "Rotor", "amount": 7 }
+      ],
+      "output": { "item": "Turbo Motor", "amount": 3 },
+      "time": 64,
+      "powerUsage": 55
+    },
+    "Recycled Plastic": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Rubber", "amount": 6 },
+        { "item": "Fuel", "amount": 6 }
+      ],
+      "output": { "item": "Plastic", "amount": 12 },
+      "time": 12,
+      "powerUsage": 30
+    },
+    "Recycled Rubber": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Plastic", "amount": 6 },
+        { "item": "Fuel", "amount": 6 }
+      ],
+      "output": { "item": "Rubber", "amount": 12 },
+      "time": 12,
+      "powerUsage": 30
+    },
+    "Polymer Resin": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Crude Oil", "amount": 6 }
+      ],
+      "output": { "item": "Polymer Resin", "amount": 13 },
+      "byproduct": { "item": "Heavy Oil Residue", "amount": 2 },
+      "time": 6,
+      "powerUsage": 30
+    },
+    "Diluted Fuel": {
+      "building": "Blender",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Heavy Oil Residue", "amount": 5 },
+        { "item": "Water", "amount": 10 }
+      ],
+      "output": { "item": "Fuel", "amount": 10 },
+      "time": 6,
+      "powerUsage": 75
+    },
+    "Turbo Heavy Fuel": {
+      "building": "Refinery",
+      "category": "Alternate",
+      "inputs": [
+        { "item": "Heavy Oil Residue", "amount": 5 },
+        { "item": "Compacted Coal", "amount": 4 }
+      ],
+      "output": { "item": "Turbofuel", "amount": 4 },
+      "time": 8,
+      "powerUsage": 30
+    }
+  }
+}
