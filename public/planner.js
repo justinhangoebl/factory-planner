@@ -322,7 +322,7 @@
   // extractor UI removed — extractors are available via recipes sidebar
 
   // Export CSV / HTML table: include per-unit and total-per-building columns for each item
-  function buildTableAndCsv(useFormulas = false) {
+  function buildTableAndCsv(useFormulas = false, opts = {}) {
     const itemsSet = new Set();
     nodes.forEach(n => {
       if (n.item) itemsSet.add(n.item);
@@ -359,7 +359,12 @@
         }
       });
       const energy = (n.power||0) * multiplier;
-      row.push(Number(energy.toFixed(2)));
+      if (useFormulas) {
+        // store power so we can emit a per-row formula later when we know row number
+        row.push({ __isEnergy: true, power: (n.power||0) });
+      } else {
+        row.push(Number(energy.toFixed(2)));
+      }
       rows.push(row);
     });
 
@@ -382,7 +387,12 @@
       sumRow.push(Number(total.toFixed(2)));
     });
     let totalEnergy = 0; nodes.forEach(n=>{ totalEnergy += (n.power||0) * (n.count||0); });
-    sumRow.push(Number(totalEnergy.toFixed(2)));
+    if (useFormulas) {
+      // placeholder; will replace with SUM(...) formula below when we know endRow
+      sumRow.push(null);
+    } else {
+      sumRow.push(Number(totalEnergy.toFixed(2)));
+    }
     rows.push(sumRow);
 
     function colLetter(n) {
@@ -410,9 +420,15 @@
         // place formula string into the sumRow position
         rows[rows.length - 1][totalColIndex] = sumFormula;
       });
+      // set SUM for the energy column at the end
+      const energyColIndex = 2 + (items.length * 2); // after all item per/total pairs
+      const energyCol = colLetter(energyColIndex);
+      const endRow = rows.length;
+      rows[rows.length - 1][energyColIndex] = `=SUM(${energyCol}2:${energyCol}${endRow})`;
     
     }
 
+    const energyColIndex = headers.length - 1;
     const csvRows = rows.map((r, ridx)=>{
       const rowNum = ridx + 2;
       return r.map((c, ci)=>{
@@ -420,8 +436,21 @@
           // for a total cell, reference the previous per-unit column
           const perCol = colLetter(ci - 1);
           const mulCol = colLetter(0);
-          const formula = `=${perCol}${rowNum}*${mulCol}${rowNum}`;
+          const formula = `=IF(${perCol}${rowNum}=0,"",${perCol}${rowNum}*${mulCol}${rowNum})`;
           return escapeCell(formula);
+        }
+        // per-row energy formula placeholder
+        if (useFormulas && c && typeof c === 'object' && c.__isEnergy) {
+          const mulCol = colLetter(0);
+          const formula = `=IF(${mulCol}${rowNum}=0,"",${mulCol}${rowNum}*${Number(c.power)})`;
+          return escapeCell(formula);
+        }
+        // Optionally strip zero values for cleaner copy/paste CSVs
+        if (opts.stripZeros) {
+          // keep formulas (strings starting with '=') intact
+          if (typeof c === 'number' && c === 0) return '';
+          if (typeof c === 'string' && c.trim() !== '' && !c.startsWith('=') && !isNaN(Number(c)) && Number(c) === 0) return '';
+          if (c === '' || c == null) return '';
         }
         return escapeCell((c=== '' || c==null) ? '-' : c);
       }).join(',');
@@ -435,8 +464,19 @@
         if (useFormulas && c === null) {
           const perCol = colLetter(ci - 1);
           const mulCol = colLetter(0);
-          const formula = `=${perCol}${rowNum}*${mulCol}${rowNum}`;
+          const formula = `=IF(${perCol}${rowNum}=0,"",${perCol}${rowNum}*${mulCol}${rowNum})`;
           return `<td>${formula}</td>`;
+        }
+        if (useFormulas && c && typeof c === 'object' && c.__isEnergy) {
+          const mulCol = colLetter(0);
+          const formula = `=IF(${mulCol}${rowNum}=0,"",${mulCol}${rowNum}*${Number(c.power)})`;
+          return `<td>${formula}</td>`;
+        }
+        // Optionally strip zeros for copy HTML
+        if (opts.stripZeros) {
+          if (typeof c === 'number' && c === 0) return `<td></td>`;
+          if (typeof c === 'string' && c.trim() !== '' && !c.startsWith('=') && !isNaN(Number(c)) && Number(c) === 0) return `<td></td>`;
+          if (c === '' || c == null) return `<td></td>`;
         }
         return `<td>${(c=== ''||c==null)?'-':String(c)}</td>`;
       }).join('') + '</tr>';
@@ -527,7 +567,7 @@
 
     async function doCopyCsvFeedback() {
       try {
-        const out = buildTableAndCsv(true); // produce spreadsheet formulas for totals
+        const out = buildTableAndCsv(true, { stripZeros: true }); // produce spreadsheet formulas for totals and strip zeros for copy
         // prefer rich clipboard (text/html) when available
         if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem) {
             // provide a full HTML document to improve Excel/Sheets paste behavior
