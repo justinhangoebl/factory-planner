@@ -1,5 +1,5 @@
 {
-  "name": "epstein-check",
+  "name": "factory-planner",
   "compatibility_date": "2026-02-06",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/worker.js",
