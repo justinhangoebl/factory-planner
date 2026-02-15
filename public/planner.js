@@ -203,6 +203,19 @@
   }
 
   function renderNodes(){
+    // preserve open/closed state for inputs details from existing DOM
+    try {
+      const existingCards = nodesEl.querySelectorAll('.node-card');
+      existingCards.forEach(card => {
+        const id = Number(card.dataset.id);
+        const nodeObj = nodes.find(x=>x.id===id);
+        if (!nodeObj) return;
+        const detailsEl = card.querySelector('details.io') || card.querySelector('[data-bind="io"]');
+        if (detailsEl) nodeObj.ioOpen = !!detailsEl.open;
+      });
+    } catch (e) {
+      // ignore if nodesEl isn't yet in the DOM or other minor issues
+    }
     nodesEl.innerHTML = '';
     const tpl = document.getElementById('tpl-node-card');
     nodes.forEach(n=>{
@@ -280,6 +293,12 @@
           tr.innerHTML = `<td style="padding:0.25rem 0.5rem;">${inp.item}</td><td style="padding:0.25rem 0.5rem; text-align:right;">${inp.rate.toFixed(2)}</td>`;
           ioBody.appendChild(tr);
         });
+      }
+      // restore details open state and keep it in sync with node object
+      const detailsEl = card.querySelector('details.io') || card.querySelector('[data-bind="io"]');
+      if (detailsEl) {
+        detailsEl.open = !!n.ioOpen;
+        detailsEl.addEventListener('toggle', ()=>{ n.ioOpen = !!detailsEl.open; });
       }
       // populate always-visible output/residual elements
       const outItemEl = card.querySelector('[data-bind="io-output-item"]');
